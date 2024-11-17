@@ -1,6 +1,8 @@
 
 package optical_clinic;
 
+import database_connector.DBKonek;
+
 
 public class HomePage extends javax.swing.JFrame {
 
@@ -193,6 +195,7 @@ public class HomePage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        DBKonek db = new DBKonek();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
