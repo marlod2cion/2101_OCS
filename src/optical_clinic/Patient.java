@@ -47,6 +47,8 @@ public class Patient extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -226,12 +228,26 @@ public class Patient extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Remove");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Update");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,16 +277,21 @@ public class Patient extends javax.swing.JFrame {
                                                 .addComponent(PC, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(PI, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(PMH, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel8)))
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton4)))
-                .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
+                        .addComponent(jButton6)
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)
+                        .addGap(40, 40, 40)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -313,7 +334,10 @@ public class Patient extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton4)
+                            .addComponent(jButton5)
+                            .addComponent(jButton6))
                         .addGap(0, 1, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
@@ -396,10 +420,10 @@ public class Patient extends javax.swing.JFrame {
         else if(address.equals("")){
             JOptionPane.showMessageDialog(null, "ADDRESS IS REQUIRED!!!");
         }
-        else if(insurance.equals("None")){
+        else if(insurance.equals("")){
             JOptionPane.showMessageDialog(null, "INSURANCE IS REQUIRED!!!");
         }
-        else if(medicalhistory.equals("None")){
+        else if(medicalhistory.equals("")){
             JOptionPane.showMessageDialog(null, "MEDICAL HISTORY IS REQUIRED!!!");
         }
         else{
@@ -415,7 +439,13 @@ public class Patient extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
             }
         }
-            
+        PN.setText("");
+        PAG.setText("");
+        PG.setSelectedItem("None");
+        PC.setText("");
+        PA.setText("");
+        PI.setSelectedItem("None");
+        PMH.setSelectedItem("None");    
 
     }//GEN-LAST:event_jButton1ActionPerformed
     private void populateHomeTable() {
@@ -503,6 +533,96 @@ public class Patient extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String patientName = PN.getText().toString(); // Assuming PID is a JTextField for inputting the Patient ID to delete.
+
+        if (patientName.equals("")) {
+            JOptionPane.showMessageDialog(null, "PATIENT NAME IS REQUIRED TO DELETE A RECORD!!!");
+        }
+        else {
+            // Confirm deletion
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this appointment?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                try {
+                    Statement state = kon.createStatement();
+                    String query = "DELETE FROM `patients` WHERE `patientName` = '" + patientName + "'";
+                    int rowsAffected = state.executeUpdate(query);
+
+                    if (rowsAffected > 0) {
+
+                        JOptionPane.showMessageDialog(rootPane, "Record Deleted Successfully");
+                    } 
+                    else {
+                        JOptionPane.showMessageDialog(rootPane, "No Record Found with Patient Name: " + patientName);
+                    }
+                } 
+                catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Failed to delete record: " + e.getMessage());
+                }
+            }
+        }
+        populateHomeTable();
+        PN.setText("");
+        PAG.setText("");
+        PG.setSelectedItem("None");
+        PC.setText("");
+        PA.setText("");
+        PI.setSelectedItem("None");
+        PMH.setSelectedItem("None");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+            // Collect updated information from the input fields
+        String name = PN.getText().toString();
+        String age = PAG.getText().toString();
+        String gender = PG.getSelectedItem().toString();
+        String contactNumber = PC.getText().toString();
+        String address = PA.getText().toString();
+        String insurance = PI.getSelectedItem().toString();
+        String medicalHistory = PMH.getSelectedItem().toString();
+
+        // Assuming the record to update is identified by `patientName`
+        if (name.equals("")) {
+        JOptionPane.showMessageDialog(null, "PATIENT NAME IS REQUIRED TO UPDATE RECORD!!!");
+        } 
+        else {
+            try {
+                // Create SQL UPDATE query
+                Statement state = kon.createStatement();
+                String query = "UPDATE `patients` SET " +
+                        "`patientAge` = '" + age + "', " +
+                        "`gender` = '" + gender + "', " +
+                        "`contactNumber` = '" + contactNumber + "', " +
+                        "`address` = '" + address + "', " +
+                        "`insurance` = '" + insurance + "', " +
+                        "`medicalHistory` = '" + medicalHistory + "' " +
+                        "WHERE `patientName` = '" + name + "'";
+            
+                int rowsAffected = state.executeUpdate(query);
+            
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(rootPane, "Record Updated Successfully");
+                }  
+                else {
+                    JOptionPane.showMessageDialog(null, "No record found with the given Patient Name");
+                }
+            } 
+            catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Failed to update record: " + e.getMessage());
+            }
+        }
+        populateHomeTable();
+        PN.setText("");
+        PAG.setText("");
+        PG.setSelectedItem("None");
+        PC.setText("");
+        PA.setText("");
+        PI.setSelectedItem("None");
+        PMH.setSelectedItem("None");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -550,6 +670,8 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

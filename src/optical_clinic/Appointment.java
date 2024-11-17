@@ -46,6 +46,8 @@ public class Appointment extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         AP = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,11 +84,16 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         AD.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        AD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DD", "1  ", "2  ", "3  ", "4  ", "5  ", "6  ", "7  ", "8  ", "9  ", "10  ", "11  ", "12  ", "13  ", "14  ", "15  ", "16  ", "17  ", "18  ", "19  ", "20  ", "21  ", "22  ", "23  ", "24  ", "25  ", "26  ", "27  ", "28  ", "29  ", "30  ", "31" }));
+        AD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DD", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         AD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        AD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ADActionPerformed(evt);
+            }
+        });
 
         AY.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        AY.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "YY", "2024  ", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", " " }));
+        AY.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "YY", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "" }));
         AY.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         jLabel3.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
@@ -142,7 +149,7 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        jButton3.setText("Go Back HomePage");
+        jButton3.setText("Homepage");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -159,22 +166,23 @@ public class Appointment extends javax.swing.JFrame {
         jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3)));
         jScrollPane1.setFont(new java.awt.Font("Lucida Sans", 0, 8)); // NOI18N
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setBackground(new java.awt.Color(0, 255, 255));
         jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
         jTable1.setFont(new java.awt.Font("Lucida Sans", 0, 8)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "AppointmentID", "AppointmentDate", "Time", "Reason", "Status"
+                "Patient ID", "Name", "AppointmentID", "Date", "Time", "Reason", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                true, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -189,7 +197,7 @@ public class Appointment extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -201,7 +209,7 @@ public class Appointment extends javax.swing.JFrame {
         );
 
         jButton4.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jButton4.setText("View Appointment");
+        jButton4.setText("View");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -227,6 +235,22 @@ public class Appointment extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jButton6.setText("Update");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jButton7.setText("Delete");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -235,10 +259,6 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(51, 51, 51)
@@ -271,8 +291,16 @@ public class Appointment extends javax.swing.JFrame {
                             .addComponent(AP)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton7)
+                        .addGap(23, 23, 23)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -282,12 +310,11 @@ public class Appointment extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(AP, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -314,8 +341,10 @@ public class Appointment extends javax.swing.JFrame {
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                         .addGap(6, 6, 6))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -381,9 +410,8 @@ public class Appointment extends javax.swing.JFrame {
         String reason = AR.getSelectedItem().toString();
         String status= AS.getSelectedItem().toString();
         String patientID = AP.getText();
-        String date = day +"-"+ month +"-"+ year;
+        String date = year+"-"+ month +"-"+ day;
         
-        int patientIDs = Integer.parseInt(patientID);
         
 
         if(patientID.equals("")){
@@ -409,9 +437,9 @@ public class Appointment extends javax.swing.JFrame {
         }
         else{
             try{
-               
+                int patientIDs = Integer.parseInt(patientID);
                 Statement state = kon.createStatement();
-                //INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `time`, `reason`, `status`) VALUES (NULL, '2', '12-12-2024', '9:00 AM', 'Routine eye exam', 'Returning Patient');
+                //INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `time`, `reason`, `status`) VALUES (NULL, '2', '202-12-24', '9:00 AM', 'Routine eye exam', 'Returning Patient');
                 String query = "INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `time`, `reason`, `status`) VALUES (NULL, '"+patientIDs+"', '"+date+"', '"+time+"', '"+reason+"', '"+status+"')";
                 state.execute(query);
                 JOptionPane.showMessageDialog(rootPane, "Record Added");
@@ -428,6 +456,7 @@ public class Appointment extends javax.swing.JFrame {
         try {
             String query = """
                            SELECT 
+                               p.patientID AS PatientID,
                                p.patientName AS PatientName,
                                a.appointmentID AS AppointmentID,
                                a.appointmentDate AS AppointmentDate,
@@ -445,7 +474,8 @@ public class Appointment extends javax.swing.JFrame {
         
             // Create table model
             DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("Name");
+            model.addColumn("PatientID"); 
+            model.addColumn("Name");       
             model.addColumn("Appointment ID");
             model.addColumn("Appointment Date");
             model.addColumn("Time");
@@ -454,6 +484,7 @@ public class Appointment extends javax.swing.JFrame {
 
             while (rs.next()) {
                 model.addRow(new Object[]{
+                    rs.getString("patientID"),
                     rs.getString("patientName"),
                     rs.getString("appointmentID"),
                     rs.getString("appointmentDate"),
@@ -509,9 +540,119 @@ public class Appointment extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void ADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ADActionPerformed
+
     private void APActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_APActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+            // Collect updated information from the input fields
+        String month = AM.getSelectedItem().toString();
+        String day = AD.getSelectedItem().toString();
+        String year = AY.getSelectedItem().toString();
+        String time = AT.getSelectedItem().toString();
+        String reason = AR.getSelectedItem().toString();
+        String status = AS.getSelectedItem().toString();
+        String patientID = AP.getText();
+        String date = year + "-" + month + "-" + day;
+
+        if (patientID.equals("")) {
+            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
+        } 
+        else if (month.equals("MM") || day.equals("DD") || year.equals("YY")) {
+            JOptionPane.showMessageDialog(null, "APPOINTMENT DATE IS REQUIRED!!!");
+        }  
+        else if (time.equals("None")) {
+            JOptionPane.showMessageDialog(null, "TIME IS REQUIRED!!!");
+        }               
+        else if (reason.equals("None")) {
+            JOptionPane.showMessageDialog(null, "REASON IS REQUIRED!!!");
+        } 
+        else if (status.equals("None")) {
+            JOptionPane.showMessageDialog(null, "STATUS IS REQUIRED!!!");
+        } 
+        else {
+            try {
+                int patientIDs = Integer.parseInt(patientID);
+                Statement state = kon.createStatement();
+
+                // UPDATE query using patientID and appointmentDate as identifying criteria
+                String query = "UPDATE `appointments` SET " +
+                    "`appointmentDate` = '" + date + "', " +
+                    "`time` = '" + time + "', " +
+                    "`reason` = '" + reason + "', " +
+                    "`status` = '" + status + "' " +
+                    "WHERE `patientID` = '" + patientIDs + "'";
+            
+                int rowsAffected = state.executeUpdate(query);
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(rootPane, "Appointment Updated Successfully");
+                } 
+                else {
+                    JOptionPane.showMessageDialog(null, "No matching appointment found for the given Patient ID and Date");
+                }
+            } 
+            catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Failed to update appointment: " + e.getMessage());
+            } 
+            catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
+            }
+        }
+        populateHomeTable();
+        AP.setText("");
+        AM.setSelectedItem("MM");
+        AD.setSelectedItem("DD");
+        AY.setSelectedItem("YY");
+        AR.setSelectedItem("None");
+        AT.setSelectedItem("None");
+        AS.setSelectedItem("None");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+            // Get the patientID and appointment date as identifying criteria
+        String patientID = AP.getText();
+        String month = AM.getSelectedItem().toString();
+        String day = AD.getSelectedItem().toString();
+        String year = AY.getSelectedItem().toString();
+        String date = year + "-" + month + "-" + day;
+
+        if (patientID.equals("")) {
+            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
+        } 
+        else {
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this appointment?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+            // Execute the delete query
+                try {
+                    int patientIDs = Integer.parseInt(patientID);
+                    Statement state = kon.createStatement();
+
+                    // DELETE query using patientID and date as criteria
+                    String query = "DELETE FROM `appointments` WHERE `patientID` = '" + patientIDs + "'";
+                    int rowsAffected = state.executeUpdate(query);
+
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(rootPane, "Appointment Removed Successfully");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No matching appointment found for the given Patient ID and Date");
+                    }
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Failed to remove appointment: " + e.getMessage());
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
+                }
+            }
+
+
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -561,6 +702,8 @@ public class Appointment extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
