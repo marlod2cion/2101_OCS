@@ -1,13 +1,24 @@
 
 package optical_clinic;
+import database_connector.DBKonek;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 
 public class Frame extends javax.swing.JFrame {
 
     
+    private Connection kon;
     public Frame() {
         initComponents();
+        DBKonek db = new DBKonek();
+        kon = db.getConnection();
     }
 
     
@@ -17,6 +28,7 @@ public class Frame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -46,15 +58,29 @@ public class Frame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
+        jButton3.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 929, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton3)
+                .addContainerGap(834, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 56, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jButton3)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 255, 255));
@@ -86,13 +112,19 @@ public class Frame extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        jLabel2.setText("Name");
+        jLabel2.setText("Frame ID");
 
         FN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        FN.setText("AUTO FILL");
         FN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         FN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FNActionPerformed(evt);
+            }
+        });
+        FN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                FNKeyPressed(evt);
             }
         });
 
@@ -154,6 +186,11 @@ public class Frame extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jButton2.setText("VIEW");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -221,7 +258,7 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(0, 255, 255));
@@ -232,21 +269,30 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3)));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(50, 426));
 
         jTable1.setBackground(new java.awt.Color(0, 255, 255));
         jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        jTable1.setFont(new java.awt.Font("Lucida Sans", 0, 18)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Title 3", "Quantity", "shape", "Material"
+                "Frame ID", "Price", "Quantity", "Shape", "Material"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -255,15 +301,15 @@ public class Frame extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -292,10 +338,9 @@ public class Frame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -338,16 +383,13 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String name = FN.getText().toString();
-        String price = FP.getText().toString();
-        String quantity = FQ.getText().toString();
+        String name = FN.getText();
+        String price = FP.getText();
+        String quantity = FQ.getText();
         String shape = FS.getSelectedItem().toString();
         String material = FM.getSelectedItem().toString();
         
-        if(name.equals("")){
-            JOptionPane.showMessageDialog(null, "FRAME NAME IS REQUIRED!!!");
-        }
-        else if(price.equals("")){
+        if(price.equals("")){
             JOptionPane.showMessageDialog(null, "PRICE IS REQUIRED!!!");
         }
         else if(quantity.equals("")){
@@ -360,8 +402,24 @@ public class Frame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "FRAME MATERIAL IS REQUIRED!!!");
         }
         else {
-            JOptionPane.showMessageDialog(null, "SUCCESSFULLY ADDED!!!");
+            try{
+                Statement state = kon.createStatement();
+                //INSERT INTO `frames` (`frameID`, `price`, `quantity`, `shape`, `material`) VALUES (NULL, '500', '1', 'Round', 'Metal');
+                String query = "INSERT INTO `frames` (`frameID`, `price`, `quantity`, `shape`, `material`) VALUES (NULL, '"+price+"', '"+quantity+"', '"+shape+"', '"+material+"')";
+                state.execute(query);
+                JOptionPane.showMessageDialog(rootPane, "Record Added");
+                 
+       
+            } 
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
+            }
         }
+        FN.setText("Auto Fill");
+        FP.setText("");
+        FQ.setText("");
+        FS.setSelectedItem("None");
+        FM.setSelectedItem("None");
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -387,6 +445,69 @@ public class Frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_FQKeyTyped
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "BACK IN THE HOMEPAGE!!!");
+        HomePage HP = new HomePage();
+        HP.setVisible(true);
+        HP.pack();
+        HP.setLocationRelativeTo(null);
+        dispose();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        populateHomeTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void FNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FNKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FNKeyPressed
+    
+    private void populateHomeTable() {
+        try {
+            String query = "SELECT * FROM `frames`";
+            Statement state = kon.createStatement();
+            ResultSet rs = state.executeQuery(query);
+
+            // Create table model
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Frame ID");
+            model.addColumn("Price");
+            model.addColumn("Quantity");
+            model.addColumn("Shape");
+            model.addColumn("Material");
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getInt("frameID"),
+                    rs.getInt("price"),
+                    rs.getString("quantity"),
+                    rs.getString("shape"),
+                    rs.getString("material"),
+                });
+            }
+            jTable1.setModel(model);
+
+            // Set column sizing
+            jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // Prevent auto resizing
+            TableColumnModel columnModel = jTable1.getColumnModel();
+
+            columnModel.getColumn(0).setPreferredWidth(80);  // Lens ID
+            columnModel.getColumn(1).setPreferredWidth(80);  // Price
+            columnModel.getColumn(2).setPreferredWidth(100); // Quantity
+            columnModel.getColumn(3).setPreferredWidth(130); // Shape
+            columnModel.getColumn(4).setPreferredWidth(140);  // Material
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(rootPane, "Error loading data: " + e.getMessage());
+        }
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+
+    }
+        
     /**
      * @param args the command line arguments
      */
@@ -430,6 +551,7 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> FS;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
