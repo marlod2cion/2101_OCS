@@ -144,8 +144,13 @@ public class Patient extends javax.swing.JFrame {
         PA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         PI.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Short-Term Health Insurance", "Medicare", "Medicaid", "TRICARE", "VA Health Benefits", "Dental Insurance", "Vision Insurance", "Critical Illness Insurance", "Hospital Indemnity Insurance", "Accident Insurance", "Long-Term Care Insurance", "International Health Insurance", "Student Health Insurance", "Travel Health Insurance", "COBRA" }));
+        PI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Short-Term Health Insurance", "Medicare", "Medicaid", "TRICARE", "VA Health Benefits", "Dental Insurance", "Vision Insurance", "Critical Illness Insurance", "Hospital Indemnity Insurance", "Accident Insurance", "Long-Term Care Insurance", "International Health Insurance", "Student Health Insurance", "Travel Health Insurance", "COBRA", "Others" }));
         PI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        PI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PIActionPerformed(evt);
+            }
+        });
 
         PMH.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PMH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Eye Conditions", "Eye Surgeries and Procedures", "Eye Injuries", "Family Eye Health History", "Other Relevant Health Conditions", "Symptoms or Current Concerns" }));
@@ -196,7 +201,7 @@ public class Patient extends javax.swing.JFrame {
 
         jTable1.setBackground(new java.awt.Color(0, 255, 255));
         jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        jTable1.setFont(new java.awt.Font("Lucida Sans", 0, 8)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 9)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -276,38 +281,35 @@ public class Patient extends javax.swing.JFrame {
                         .addComponent(jButton5)
                         .addGap(41, 41, 41))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(PN, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PAG, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel8))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(PN, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PAG, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(PG, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(73, 73, 73))
-                                            .addComponent(PC, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PA, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PI, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PMH, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(PG, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(73, 73, 73))
+                                    .addComponent(PC, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PA, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PI, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PMH, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -446,6 +448,7 @@ public class Patient extends javax.swing.JFrame {
                 Statement state = kon.createStatement();
                 String query = "INSERT INTO `patients` (`patientID`, `patientName`, `patientAge`, `gender`, `contactNumber`, `address`, `insurance`, `medicalHistory`) VALUES (NULL, '"+name+"', '"+age+"', '"+gender+"', '"+contactnumber+"', '"+address+"', '"+insurance+"', '"+medicalhistory+"')";
                 state.execute(query);
+                JOptionPane.showMessageDialog(rootPane, "String query = \"INSERT INTO `patients` (`patientID`, `patientName`, `patientAge`, `gender`, `contactNumber`, `address`, `insurance`, `medicalHistory`) VALUES (NULL, '\"+name+\"', '\"+age+\"', '\"+gender+\"', '\"+contactnumber+\"', '\"+address+\"', '\"+insurance+\"', '\"+medicalhistory+\"')\"");
                 JOptionPane.showMessageDialog(rootPane, "Record Added");
                  
        
@@ -454,6 +457,7 @@ public class Patient extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
             }
         }
+        populateHomeTable();
         PN.setText("");
         PAG.setText("");
         PG.setSelectedItem("None");
@@ -463,7 +467,7 @@ public class Patient extends javax.swing.JFrame {
         PMH.setSelectedItem("None");    
 
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void populateHomeTable() {
+    public void populateHomeTable() {
         try {
             String query = "SELECT * FROM `patients`";
             Statement state = kon.createStatement();
@@ -603,45 +607,121 @@ public class Patient extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-            // Collect updated information from the input fields
-        String name = PN.getText().toString();
-        String age = PAG.getText().toString();
-        String gender = PG.getSelectedItem().toString();
-        String contactNumber = PC.getText().toString();
-        String address = PA.getText().toString();
-        String insurance = PI.getSelectedItem().toString();
-        String medicalHistory = PMH.getSelectedItem().toString();
+       populateHomeTable();
+        // Ask for Patient ID
+        String patientID = JOptionPane.showInputDialog("Enter Patient ID to update:");
 
-        // Assuming the record to update is identified by `patientName`
-        if (name.equals("")) {
-        JOptionPane.showMessageDialog(null, "PATIENT NAME IS REQUIRED TO UPDATE RECORD!!!");
-        } 
-        else {
-            try {
-                // Create SQL UPDATE query
-                Statement state = kon.createStatement();
-                String query = "UPDATE `patients` SET " +
-                        "`patientAge` = '" + age + "', " +
-                        "`gender` = '" + gender + "', " +
-                        "`contactNumber` = '" + contactNumber + "', " +
-                        "`address` = '" + address + "', " +
-                        "`insurance` = '" + insurance + "', " +
-                        "`medicalHistory` = '" + medicalHistory + "' " +
-                        "WHERE `patientName` = '" + name + "'";
-            
-                int rowsAffected = state.executeUpdate(query);
-            
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(rootPane, "Record Updated Successfully");
-                }  
-                else {
-                    JOptionPane.showMessageDialog(null, "No record found with the given Patient Name");
-                }
-            } 
-            catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Failed to update record: " + e.getMessage());
-            }
+        // Check if Patient ID is provided
+        if (patientID == null || patientID.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
+            return;
         }
+
+        try {
+            // Prompt the user to select the field they want to update
+            String[] options = {"Name", "Age", "Gender", "Contact Number", "Address", "Insurance", "Medical History"};
+            String choice = (String) JOptionPane.showInputDialog(
+                null,
+                "What would you like to update?",
+                "Update Options",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]
+            );
+
+            if (choice == null) {
+                JOptionPane.showMessageDialog(null, "No update option selected.");
+                return;
+            }
+
+            String query = "";
+            Statement state = kon.createStatement();
+
+            // Prompt the user to fill out the field they selected for update
+            switch (choice) {
+                case "Name":
+                    String name = JOptionPane.showInputDialog("Enter new Name:");
+                    if (name == null || name.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Name is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `patientName` = '" + name + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                case "Age":
+                    String age = JOptionPane.showInputDialog("Enter new Age:");
+                    if (age == null || age.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Age is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `patientAge` = '" + age + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                case "Gender":
+                    String gender = JOptionPane.showInputDialog("Enter new Gender:");
+                    if (gender == null || gender.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Gender is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `gender` = '" + gender + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                case "Contact Number":
+                    String contactNumber = JOptionPane.showInputDialog("Enter new Contact Number:");
+                    if (contactNumber == null || contactNumber.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Contact Number is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `contactNumber` = '" + contactNumber + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                case "Address":
+                    String address = JOptionPane.showInputDialog("Enter new Address:");
+                    if (address == null || address.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Address is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `address` = '" + address + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                case "Insurance":
+                    String insurance = JOptionPane.showInputDialog("Enter new Insurance:");
+                    if (insurance == null || insurance.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Insurance is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `insurance` = '" + insurance + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                case "Medical History":
+                    String medicalHistory = JOptionPane.showInputDialog("Enter new Medical History:");
+                    if (medicalHistory == null || medicalHistory.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Medical History is required!");
+                        return;
+                    }
+                    query = "UPDATE `patients` SET `medicalHistory` = '" + medicalHistory + "' WHERE `patientID` = '" + patientID + "'";
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Invalid selection.");
+                    return;
+            }
+
+            // Execute the query
+            int rowsAffected = state.executeUpdate(query);
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(rootPane, choice + " Updated Successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "No record found with the given Patient ID");
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Failed to update record: " + e.getMessage());
+        }
+
+        // Refresh table and reset fields
         populateHomeTable();
         PN.setText("");
         PAG.setText("");
@@ -649,7 +729,7 @@ public class Patient extends javax.swing.JFrame {
         PC.setText("");
         PA.setText("");
         PI.setSelectedItem("None");
-        PMH.setSelectedItem("None");
+        PMH.setSelectedItem("None");                 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -665,6 +745,10 @@ public class Patient extends javax.swing.JFrame {
     private void PNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PNActionPerformed
+
+    private void PIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PIActionPerformed
 
     /**
      * @param args the command line arguments

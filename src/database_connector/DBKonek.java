@@ -14,9 +14,9 @@ import javax.swing.JOptionPane;
 //class for db connection
 public class DBKonek {
     
-    private static String url = "jdbc:mysql://localhost:3306/optical_clinic";
-    private static String userName = "root";
-    private static String userPassword = "";
+    private static final String url = "jdbc:mysql://localhost:3306/optical_clinic";
+    private static final String userName = "root";
+    private static final String userPassword = "";
     
     private static Connection kon;
     private static DBKonek dbKon;

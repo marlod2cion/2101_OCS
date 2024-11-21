@@ -5,7 +5,6 @@ import database_connector.DBKonek;
 
 
 public class Optical_Clinic {
-
    
     public static void main(String[] args) {
         DBKonek db = new DBKonek();

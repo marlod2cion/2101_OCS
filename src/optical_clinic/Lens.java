@@ -29,6 +29,7 @@ public class Lens extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -45,6 +46,7 @@ public class Lens extends javax.swing.JFrame {
         LF = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -68,6 +70,13 @@ public class Lens extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -75,13 +84,17 @@ public class Lens extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jButton3)
+                .addGap(68, 68, 68)
+                .addComponent(jButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jButton3)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -188,6 +201,15 @@ public class Lens extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
+        jButton6.setText("Update");
+        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -208,7 +230,7 @@ public class Lens extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel5)))
                         .addGap(18, 18, 18)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(LF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -218,6 +240,9 @@ public class Lens extends javax.swing.JFrame {
                             .addComponent(LP))
                         .addGap(16, 16, 16))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38))))
             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -251,9 +276,11 @@ public class Lens extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LF))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33))
         );
 
@@ -269,7 +296,7 @@ public class Lens extends javax.swing.JFrame {
 
         jTable1.setBackground(new java.awt.Color(0, 255, 255));
         jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 8)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -452,6 +479,119 @@ public class Lens extends javax.swing.JFrame {
     private void LMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LMActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        populateHomeTable();
+        String lensID = JOptionPane.showInputDialog("Enter Lens ID to update:");
+
+        // Check if lens ID is provided
+        if (lensID == null || lensID.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "LENS ID IS REQUIRED!!!");
+            return;
+        }
+        
+        try {
+            // Ask the user which field they want to update
+            String[] options = {"Material", "Thickness", "Price", "Quantity", "Feature"};
+            String choice = (String) JOptionPane.showInputDialog(
+                null,
+                "What would you like to update?",
+                "Update Options",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]
+            );
+
+            if (choice == null) {
+                JOptionPane.showMessageDialog(null, "No update option selected.");
+                return;
+            }
+
+            String query = "";
+            Statement state = kon.createStatement();
+
+            // Build the appropriate query based on the user's choice
+            switch (choice) {
+                case "Material":
+                    String material = LM.getSelectedItem().toString();
+                    if (material.equals("none")) {
+                        JOptionPane.showMessageDialog(null, "MATERIAL IS REQUIRED!!!");
+                        return;
+                    }
+                    query = "UPDATE `lens` SET `material` = '" + material + "' WHERE `lensID` = '" + lensID + "'";
+                    break;
+
+                case "Thickness":
+                    String thickness = LI.getSelectedItem().toString();
+                    if (thickness.equals("none")) {
+                        JOptionPane.showMessageDialog(null, "INDEX IS REQUIRED!!!");
+                        return;
+                    }
+                    query = "UPDATE `lens` SET `thickness` = '" + thickness + "' WHERE `lensID` = '" + lensID + "'";
+                    break;
+
+                case "Price":
+                    String price = LP.getText();
+                    if (price.equals("")) {
+                        JOptionPane.showMessageDialog(null, "PRICE IS REQUIRED!!!");
+                        return;
+                    }
+                    query = "UPDATE `lens` SET `price` = '" + price + "' WHERE `lensID` = '" + lensID + "'";
+                    break;
+
+                case "Quantity":
+                    String quantity = LQ.getText();
+                    if (quantity.equals("")) {
+                        JOptionPane.showMessageDialog(null, "QUANTITY IS REQUIRED!!!");
+                        return;
+                    }
+                    query = "UPDATE `lens` SET `quantity` = '" + quantity + "' WHERE `lensID` = '" + lensID + "'";
+                    break;
+
+                case "Feature":
+                    String feature = LF.getSelectedItem().toString();
+                    if (feature.equals("none")) {
+                        JOptionPane.showMessageDialog(null, "FEATURE IS REQUIRED!!!");
+                        return;
+                    }
+                    query = "UPDATE `lens` SET `feature` = '" + feature + "' WHERE `lensID` = '" + lensID + "'";
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Invalid selection.");
+                    return;
+            }
+
+            // Execute the query
+            int rowsAffected = state.executeUpdate(query);
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(rootPane, choice + " Updated Successfully");
+            } else {
+                JOptionPane.showMessageDialog(null, "No record found with the given Lens ID");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Failed to update record: " + e.getMessage());
+        }
+        populateHomeTable();
+        // Reset fields
+        LM.setSelectedItem("none");
+        LI.setSelectedItem("none");
+        LP.setText("");
+        LQ.setText("");
+        LF.setSelectedItem("none");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        
+       
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
     private void populateHomeTable() {
         try {
             String query = "SELECT * FROM `lens`";
@@ -542,6 +682,8 @@ public class Lens extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

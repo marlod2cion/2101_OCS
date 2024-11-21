@@ -187,7 +187,7 @@ public class Appointment extends javax.swing.JFrame {
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setBackground(new java.awt.Color(0, 255, 255));
         jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 8)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 9)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -270,7 +270,7 @@ public class Appointment extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addGap(18, 18, 18)
@@ -278,36 +278,35 @@ public class Appointment extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel4))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addGap(33, 33, 33)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel6))
-                                    .addGap(23, 23, 23))
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(AD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(AM, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(AY, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(AR, 0, 1, Short.MAX_VALUE)
-                                .addComponent(AT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(AS, 0, 269, Short.MAX_VALUE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6))
+                                .addGap(23, 23, 23))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(AD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(AM, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(AY, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AR, 0, 1, Short.MAX_VALUE)
+                            .addComponent(AT, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AS, 0, 269, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jButton6)
                         .addGap(53, 53, 53)
                         .addComponent(jButton7)))
                 .addGap(18, 18, 18)
@@ -571,68 +570,115 @@ public class Appointment extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-            // Collect updated information from the input fields
-        String month = AM.getSelectedItem().toString();
-        String day = AD.getSelectedItem().toString();
-        String year = AY.getSelectedItem().toString();
-        String time = AT.getSelectedItem().toString();
-        String reason = AR.getSelectedItem().toString();
-        String status = AS.getSelectedItem().toString();
-        String patientID = AP.getText();
-        String date = year + "-" + month + "-" + day;
+       populateHomeTable();
+       String patientID = AP.getText().trim();
 
-        if (patientID.equals("")) {
-            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
-        } 
-        else if (month.equals("MM") || day.equals("DD") || year.equals("YY")) {
-            JOptionPane.showMessageDialog(null, "APPOINTMENT DATE IS REQUIRED!!!");
-        }  
-        else if (time.equals("None")) {
-            JOptionPane.showMessageDialog(null, "TIME IS REQUIRED!!!");
-        }               
-        else if (reason.equals("None")) {
-            JOptionPane.showMessageDialog(null, "REASON IS REQUIRED!!!");
-        } 
-        else if (status.equals("None")) {
-            JOptionPane.showMessageDialog(null, "STATUS IS REQUIRED!!!");
-        } 
-        else {
-            try {
-                int patientIDs = Integer.parseInt(patientID);
-                Statement state = kon.createStatement();
+       // Validate that Patient ID is provided
+       if (patientID.equals("")) {
+           JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
+           return;
+       }
 
-                // UPDATE query using patientID and appointmentDate as identifying criteria
-                String query = "UPDATE `appointments` SET " +
-                    "`appointmentDate` = '" + date + "', " +
-                    "`time` = '" + time + "', " +
-                    "`reason` = '" + reason + "', " +
-                    "`status` = '" + status + "' " +
-                    "WHERE `patientID` = '" + patientIDs + "'";
-            
-                int rowsAffected = state.executeUpdate(query);
+       try {
+           int patientIDs = Integer.parseInt(patientID); // Ensure Patient ID is numeric
+           Statement state = kon.createStatement();
 
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(rootPane, "Appointment Updated Successfully");
-                } 
-                else {
-                    JOptionPane.showMessageDialog(null, "No matching appointment found for the given Patient ID and Date");
-                }
-            } 
-            catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Failed to update appointment: " + e.getMessage());
-            } 
-            catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
-            }
-        }
-        populateHomeTable();
-        AP.setText("");
-        AM.setSelectedItem("MM");
-        AD.setSelectedItem("DD");
-        AY.setSelectedItem("YY");
-        AR.setSelectedItem("None");
-        AT.setSelectedItem("None");
-        AS.setSelectedItem("None");
+           // Prompt user to select what to update
+           String[] options = {"Appointment Date", "Time", "Reason", "Status"};
+           String choice = (String) JOptionPane.showInputDialog(
+               null,
+               "What would you like to update?",
+               "Update Options",
+               JOptionPane.QUESTION_MESSAGE,
+               null,
+               options,
+               options[0]
+           );
+
+           if (choice == null) {
+               JOptionPane.showMessageDialog(null, "No update option selected.");
+               return;
+           }
+
+           String query = "";
+           String newValue = "";
+
+           // Perform update based on selected option
+           switch (choice) {
+               case "Appointment Date":
+                   // Validate date input
+                   String month = AM.getSelectedItem().toString();
+                   String day = AD.getSelectedItem().toString();
+                   String year = AY.getSelectedItem().toString();
+
+                   if (month.equals("MM") || day.equals("DD") || year.equals("YY")) {
+                       JOptionPane.showMessageDialog(null, "Complete appointment date is required!");
+                       return;
+                   }
+
+                   String date = year + "-" + month + "-" + day;
+                   query = "UPDATE `appointments` SET `appointmentDate` = '" + date + "' WHERE `patientID` = '" + patientIDs + "'";
+                   newValue = "Appointment Date: " + date;
+                   break;
+
+               case "Time":
+                   String time = AT.getSelectedItem().toString();
+                   if (time.equals("None")) {
+                       JOptionPane.showMessageDialog(null, "Time is required!");
+                       return;
+                   }
+                   query = "UPDATE `appointments` SET `time` = '" + time + "' WHERE `patientID` = '" + patientIDs + "'";
+                   newValue = "Time: " + time;
+                   break;
+
+               case "Reason":
+                   String reason = AR.getSelectedItem().toString();
+                   if (reason.equals("None")) {
+                       JOptionPane.showMessageDialog(null, "Reason is required!");
+                       return;
+                   }
+                   query = "UPDATE `appointments` SET `reason` = '" + reason + "' WHERE `patientID` = '" + patientIDs + "'";
+                   newValue = "Reason: " + reason;
+                   break;
+
+               case "Status":
+                   String status = AS.getSelectedItem().toString();
+                   if (status.equals("None")) {
+                       JOptionPane.showMessageDialog(null, "Status is required!");
+                       return;
+                   }
+                   query = "UPDATE `appointments` SET `status` = '" + status + "' WHERE `patientID` = '" + patientIDs + "'";
+                   newValue = "Status: " + status;
+                   break;
+
+               default:
+                   JOptionPane.showMessageDialog(null, "Invalid selection.");
+                   return;
+           }
+
+           // Execute the update query
+           int rowsAffected = state.executeUpdate(query);
+
+           if (rowsAffected > 0) {
+               JOptionPane.showMessageDialog(rootPane, newValue + " updated successfully.");
+           } else {
+               JOptionPane.showMessageDialog(null, "No matching appointment found for the given Patient ID.");
+           }
+       } catch (SQLException e) {
+           JOptionPane.showMessageDialog(null, "Failed to update appointment: " + e.getMessage());
+       } catch (NumberFormatException e) {
+           JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
+       }
+
+       // Refresh table and reset fields
+       populateHomeTable();
+       AP.setText("");
+       AM.setSelectedItem("MM");
+       AD.setSelectedItem("DD");
+       AY.setSelectedItem("YY");
+       AR.setSelectedItem("None");
+       AT.setSelectedItem("None");
+       AS.setSelectedItem("None");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
