@@ -33,7 +33,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,7 +104,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="jButton8" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="543" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
               </Group>
@@ -401,15 +401,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" pref="80" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" pref="91" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="106" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -421,10 +421,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PP" max="32767" attributes="0"/>
+                                  <Component id="PS" alignment="1" pref="0" max="32767" attributes="0"/>
+                                  <Component id="PP" pref="194" max="32767" attributes="0"/>
                                   <Component id="PC" max="32767" attributes="0"/>
                                   <Component id="PT" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="PS" max="32767" attributes="0"/>
                                   <Component id="PQ" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -438,40 +438,35 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="PT" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="PT" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="PP" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="PP" max="32767" attributes="0"/>
+                          <Component id="jLabel3" pref="33" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="PC" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="PC" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="PS" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel5" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="PS" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="PQ" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="PQ" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="87" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -526,16 +521,9 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="PS">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Sans" size="18" style="1"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-              </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PCKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
@@ -588,6 +576,10 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PQActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PQKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="PT">
               <Properties>
@@ -600,6 +592,39 @@
                   </Border>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="PS">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Sans" size="18" style="1"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="11">
+                    <StringItem index="0" value="None"/>
+                    <StringItem index="1" value="Artificial tears"/>
+                    <StringItem index="2" value="Saline solutions"/>
+                    <StringItem index="3" value="Antibiotic drops"/>
+                    <StringItem index="4" value="Antihistamine drops"/>
+                    <StringItem index="5" value="Decongestant drops"/>
+                    <StringItem index="6" value="Lubricating gels and ointments"/>
+                    <StringItem index="7" value="Steroid drops"/>
+                    <StringItem index="8" value="Antiviral drops"/>
+                    <StringItem index="9" value="Glaucoma drops"/>
+                    <StringItem index="10" value="Diagnostic drops"/>
+                  </StringArray>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder thickness="0"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PSActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

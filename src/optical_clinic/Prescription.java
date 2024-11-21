@@ -43,12 +43,12 @@ public class Prescription extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         PC = new javax.swing.JTextField();
-        PS = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         PP = new javax.swing.JTextField();
         PQ = new javax.swing.JTextField();
         PT = new javax.swing.JTextField();
+        PS = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,9 +194,11 @@ public class Prescription extends javax.swing.JFrame {
 
         PC.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         PC.setBorder(null);
-
-        PS.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PS.setBorder(null);
+        PC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PCKeyTyped(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jButton1.setText("Confirm");
@@ -221,23 +223,42 @@ public class Prescription extends javax.swing.JFrame {
 
         PQ.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PQ.setBorder(null);
+        PQ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PQActionPerformed(evt);
+            }
+        });
+        PQ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PQKeyTyped(evt);
+            }
+        });
 
         PT.setFont(new java.awt.Font("Lucida Sans", 2, 18)); // NOI18N
         PT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+
+        PS.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
+        PS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Artificial tears", "Saline solutions", "Antibiotic drops", "Antihistamine drops", "Decongestant drops", "Lubricating gels and ointments", "Steroid drops", "Antiviral drops", "Glaucoma drops", "Diagnostic drops" }));
+        PS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PSActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
+                        .addGap(79, 79, 79)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 106, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,10 +268,10 @@ public class Prescription extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(57, 57, 57)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PP)
+                            .addComponent(PS, javax.swing.GroupLayout.Alignment.TRAILING, 0, 0, Short.MAX_VALUE)
+                            .addComponent(PP, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                             .addComponent(PC)
                             .addComponent(PT)
-                            .addComponent(PS)
                             .addComponent(PQ))))
                 .addGap(20, 20, 20))
         );
@@ -259,32 +280,29 @@ public class Prescription extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(PT, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PT, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PP)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(PP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(PC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PC, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PS, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(PS, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(PQ, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(PQ, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(83, 83, 83)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -335,7 +353,7 @@ public class Prescription extends javax.swing.JFrame {
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
@@ -351,7 +369,7 @@ public class Prescription extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -416,7 +434,7 @@ public class Prescription extends javax.swing.JFrame {
         String treatment = PT.getText().toString();
         String patient = PP.getText().toString();
         String cost = PC.getText().toString();
-        String solution = PS.getText().toString();
+        String solution = PS.getSelectedItem().toString();
         String quantity = PQ.getText().toString();
 
         if(treatment.equals("")){
@@ -461,6 +479,36 @@ public class Prescription extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void PCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PCKeyTyped
+        // TODO add your handling code here:
+        char a = evt.getKeyChar();
+        if (Character.isLetter(a)) {
+            PC.setEditable(false);
+        }
+        else{
+            PC.setEditable(true);
+        }
+    }//GEN-LAST:event_PCKeyTyped
+
+    private void PQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PQActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PQActionPerformed
+
+    private void PQKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PQKeyTyped
+        // TODO add your handling code here:
+         char a = evt.getKeyChar();
+        if (Character.isLetter(a)) {
+            PQ.setEditable(false);
+        }
+        else{
+            PQ.setEditable(true);
+        }
+    }//GEN-LAST:event_PQKeyTyped
+
+    private void PSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PSActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -500,7 +548,7 @@ public class Prescription extends javax.swing.JFrame {
     private javax.swing.JTextField PC;
     private javax.swing.JTextField PP;
     private javax.swing.JTextField PQ;
-    private javax.swing.JTextField PS;
+    private javax.swing.JComboBox<String> PS;
     private javax.swing.JTextField PT;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;

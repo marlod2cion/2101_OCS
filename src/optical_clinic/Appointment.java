@@ -735,14 +735,6 @@ public class Appointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ATActionPerformed
 
-    private void ADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ADActionPerformed
-
-    private void AMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AMActionPerformed
-
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         Payments PY = new Payments();
@@ -822,6 +814,14 @@ public class Appointment extends javax.swing.JFrame {
         PR.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void AMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AMActionPerformed
+
+    private void ADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ADActionPerformed
 
     
     private void populateHomeTable() {

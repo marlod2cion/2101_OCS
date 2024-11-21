@@ -29,6 +29,7 @@ public class HomePage extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -119,7 +120,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 189, 50));
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 189, 40));
 
         jButton14.setBackground(new java.awt.Color(253, 252, 232));
         jButton14.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -135,6 +136,16 @@ public class HomePage extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/front.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CMC - OPTICAL CLINIC", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Text", 1, 36), new java.awt.Color(253, 252, 232))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 520, 550));
+
+        jButton2.setBackground(new java.awt.Color(253, 252, 232));
+        jButton2.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 110, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 950, 687));
 
@@ -213,6 +224,15 @@ public class HomePage extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Logins LS = new Logins();
+        LS.setVisible(true);
+        LS.pack();
+        LS.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -256,6 +276,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
