@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -28,6 +29,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jButton16 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,7 +51,7 @@ public class Patient extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        searchInput = new javax.swing.JTextField();
+        searchField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -65,7 +67,6 @@ public class Patient extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(35, 57, 93));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -80,20 +81,34 @@ public class Patient extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Lucida Calligraphy", 1, 40)); // NOI18N
         jLabel6.setText("Patient Registration");
 
+        jButton16.setBackground(new java.awt.Color(151, 213, 224));
+        jButton16.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/house.png"))); // NOI18N
+        jButton16.setBorder(null);
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
+                .addContainerGap()
+                .addComponent(jButton16)
+                .addGap(156, 156, 156)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(387, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 9, 1220, -1));
@@ -126,7 +141,7 @@ public class Patient extends javax.swing.JFrame {
         jLabel8.setText("Medical History");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 37));
 
-        jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jButton1.setText("Submit");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +198,7 @@ public class Patient extends javax.swing.JFrame {
         PMH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         jPanel3.add(PMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 330, 31));
 
-        jButton2.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jButton2.setText("Clear");
         jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +246,7 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 90, 30));
 
-        jButton5.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jButton5.setText("Remove");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,7 +255,7 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, -1, 40));
 
-        jButton6.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jButton6.setText("Update");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +264,7 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, 40));
 
-        jButton4.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         jButton4.setText("View");
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -259,8 +274,13 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 117, 42));
 
-        searchInput.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        jPanel3.add(searchInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 220, 30));
+        searchField.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        searchField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchFieldActionPerformed(evt);
+            }
+        });
+        jPanel3.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 220, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 76, 559, 490));
 
@@ -388,7 +408,16 @@ public class Patient extends javax.swing.JFrame {
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 480));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 580));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1259, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -621,6 +650,50 @@ public class Patient extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        // Example search by patient name or ID
+            String searchInput = searchField.getText().trim(); // Get input from a search text field
+        if (searchInput.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "SEARCH FIELD CANNOT BE EMPTY!");
+        } else {
+            try {
+                // Use a PreparedStatement for dynamic queries
+                String query = "SELECT * FROM `patients` WHERE `patientName` LIKE ? OR `patientID` = ?";
+                PreparedStatement preparedStatement = kon.prepareStatement(query);
+                preparedStatement.setString(1, "%" + searchInput + "%"); // Allow partial matches for name
+                try {
+                    preparedStatement.setInt(2, Integer.parseInt(searchInput)); // Check if input is numeric (for patient ID)
+                } catch (NumberFormatException e) {
+                    preparedStatement.setInt(2, -1); // Set an invalid ID for non-numeric input
+                }
+
+                // Execute the query
+                ResultSet rs = preparedStatement.executeQuery();
+
+                // Process and display results
+                StringBuilder results = new StringBuilder();
+                while (rs.next()) {
+                    results.append("Patient ID: ").append(rs.getInt("patientID")).append("\n");
+                    results.append("Name: ").append(rs.getString("patientName")).append("\n");
+                    results.append("Age: ").append(rs.getString("patientAge")).append("\n");
+                    results.append("Gender: ").append(rs.getString("gender")).append("\n");
+                    results.append("Contact: ").append(rs.getString("contactNumber")).append("\n");
+                    results.append("Address: ").append(rs.getString("address")).append("\n");
+                    results.append("Insurance: ").append(rs.getString("insurance")).append("\n");
+                    results.append("Medical History: ").append(rs.getString("medicalHistory")).append("\n\n");
+                }
+
+                // Show results or inform the user if no records are found
+                if (results.length() > 0) {
+                    JOptionPane.showMessageDialog(null, "Search Results:\n\n" + results.toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No records found for: " + searchInput);
+                }
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Failed to execute search: " + e.getMessage());
+            }
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void PAGKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PAGKeyTyped
@@ -752,6 +825,19 @@ public class Patient extends javax.swing.JFrame {
         SL.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        HomePage HP = new HomePage();
+        HP.setVisible(true);
+        HP.pack();
+        HP.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchFieldActionPerformed
     public void populateHomeTable() {
         try {
             String query = "SELECT * FROM `patients`";
@@ -860,6 +946,7 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -882,6 +969,6 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField searchInput;
+    private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 }

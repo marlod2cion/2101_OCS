@@ -33,7 +33,6 @@ public class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(21, 34, 56));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -43,7 +42,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Lucida Calligraphy", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(253, 252, 232));
         jLabel3.setText("Welcome! ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 270, 58));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 270, 58));
 
         jButton1.setBackground(new java.awt.Color(253, 252, 232));
         jButton1.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -54,7 +53,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 210, 34));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 190, 34));
 
         jButton8.setBackground(new java.awt.Color(253, 252, 232));
         jButton8.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -65,7 +64,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 189, 34));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 189, 34));
 
         jButton9.setBackground(new java.awt.Color(253, 252, 232));
         jButton9.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -76,7 +75,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 189, 34));
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 189, 34));
 
         jButton10.setBackground(new java.awt.Color(253, 252, 232));
         jButton10.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -87,7 +86,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 189, 34));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 189, 34));
 
         jButton11.setBackground(new java.awt.Color(253, 252, 232));
         jButton11.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -98,7 +97,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 189, 34));
+        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, 189, 34));
 
         jButton12.setBackground(new java.awt.Color(253, 252, 232));
         jButton12.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -109,7 +108,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 189, 34));
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 189, 34));
 
         jButton13.setBackground(new java.awt.Color(253, 252, 232));
         jButton13.setFont(new java.awt.Font("Lucida Fax", 0, 24)); // NOI18N
@@ -120,7 +119,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 189, 40));
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 570, 189, 40));
 
         jButton14.setBackground(new java.awt.Color(253, 252, 232));
         jButton14.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
@@ -131,7 +130,7 @@ public class HomePage extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 189, 34));
+        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 189, 34));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/front.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CMC - OPTICAL CLINIC", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Text", 1, 36), new java.awt.Color(253, 252, 232))); // NOI18N
@@ -145,9 +144,22 @@ public class HomePage extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 110, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 630, 110, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 950, 687));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
