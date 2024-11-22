@@ -45,92 +45,100 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 270, 58));
 
         jButton1.setBackground(new java.awt.Color(253, 252, 232));
-        jButton1.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton1.setText("Patient Registration");
+        jButton1.setFont(new java.awt.Font("Lucida Fax", 0, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/patient 2 icon 23.png"))); // NOI18N
+        jButton1.setText(" Patient Registration");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 0, true));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 190, 34));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 190, 40));
 
         jButton8.setBackground(new java.awt.Color(253, 252, 232));
         jButton8.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton8.setText("Appointment");
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-appointment-64.png"))); // NOI18N
+        jButton8.setText("  Appointment");
         jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 189, 34));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, 189, 40));
 
         jButton9.setBackground(new java.awt.Color(253, 252, 232));
         jButton9.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton9.setText("Examination");
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-examination-24(1).png"))); // NOI18N
+        jButton9.setText("  Examination");
         jButton9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 189, 34));
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 189, 40));
 
         jButton10.setBackground(new java.awt.Color(253, 252, 232));
         jButton10.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton10.setText("Solution");
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-solution-24.png"))); // NOI18N
+        jButton10.setText(" Solution");
         jButton10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 189, 34));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 190, 34));
 
         jButton11.setBackground(new java.awt.Color(253, 252, 232));
         jButton11.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton11.setText("Frame");
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-frame 26.png"))); // NOI18N
+        jButton11.setText(" Frame");
         jButton11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, 189, 34));
+        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 450, 190, 40));
 
         jButton12.setBackground(new java.awt.Color(253, 252, 232));
         jButton12.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton12.setText("Lens");
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-lenses-24.png"))); // NOI18N
+        jButton12.setText("  Lens");
         jButton12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 189, 34));
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 190, 34));
 
         jButton13.setBackground(new java.awt.Color(253, 252, 232));
-        jButton13.setFont(new java.awt.Font("Lucida Fax", 0, 24)); // NOI18N
-        jButton13.setText("Payment");
+        jButton13.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-payment-27.png"))); // NOI18N
+        jButton13.setText(" Payment");
         jButton13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 570, 189, 40));
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 560, 190, 40));
 
         jButton14.setBackground(new java.awt.Color(253, 252, 232));
         jButton14.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
-        jButton14.setText("Prescription");
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-prescription-24.png"))); // NOI18N
+        jButton14.setText("  Prescription");
         jButton14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 189, 34));
+        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 189, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/front.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CMC - OPTICAL CLINIC", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Text", 1, 36), new java.awt.Color(253, 252, 232))); // NOI18N
