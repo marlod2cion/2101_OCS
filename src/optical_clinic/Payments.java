@@ -388,14 +388,14 @@ public class Payments extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -463,11 +463,7 @@ public class Payments extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        Frame FR = new Frame();
-        FR.setVisible(true);
-        FR.pack();
-        FR.setLocationRelativeTo(null);
-        dispose();
+
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -481,20 +477,16 @@ public class Payments extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        Solution SL = new Solution();
-        SL.setVisible(true);
-        SL.pack();
-        SL.setLocationRelativeTo(null);
+        Product PR = new Product();
+        PR.setVisible(true);
+        PR.pack();
+        PR.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        HomePage HP = new HomePage();
-        HP.setVisible(true);
-        HP.pack();
-        HP.setLocationRelativeTo(null);
-        dispose();
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
@@ -503,207 +495,20 @@ public class Payments extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        populateHomeTable();
-        String patientID = AP.getText().trim();
 
-        // Validate that Patient ID is provided
-        if (patientID.equals("")) {
-            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
-            return;
-        }
-
-        try {
-            int patientIDs = Integer.parseInt(patientID); // Ensure Patient ID is numeric
-            Statement state = kon.createStatement();
-
-            // Prompt user to select what to update
-            String[] options = {"Appointment Date", "Time", "Reason", "Status"};
-            String choice = (String) JOptionPane.showInputDialog(
-                null,
-                "What would you like to update?",
-                "Update Options",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[0]
-            );
-
-            if (choice == null) {
-                JOptionPane.showMessageDialog(null, "No update option selected.");
-                return;
-            }
-
-            String query = "";
-            String newValue = "";
-
-            // Perform update based on selected option
-            switch (choice) {
-                case "Appointment Date":
-                // Validate date input
-                String month = AM.getSelectedItem().toString();
-                String day = AD.getSelectedItem().toString();
-                String year = AY.getSelectedItem().toString();
-
-                if (month.equals("MM") || day.equals("DD") || year.equals("YY")) {
-                    JOptionPane.showMessageDialog(null, "Complete appointment date is required!");
-                    return;
-                }
-
-                String date = year + "-" + month + "-" + day;
-                query = "UPDATE `appointments` SET `appointmentDate` = '" + date + "' WHERE `patientID` = '" + patientIDs + "'";
-                newValue = "Appointment Date: " + date;
-                break;
-
-                case "Time":
-                String time = AT.getSelectedItem().toString();
-                if (time.equals("None")) {
-                    JOptionPane.showMessageDialog(null, "Time is required!");
-                    return;
-                }
-                query = "UPDATE `appointments` SET `time` = '" + time + "' WHERE `patientID` = '" + patientIDs + "'";
-                newValue = "Time: " + time;
-                break;
-
-                case "Reason":
-                String reason = AR.getSelectedItem().toString();
-                if (reason.equals("None")) {
-                    JOptionPane.showMessageDialog(null, "Reason is required!");
-                    return;
-                }
-                query = "UPDATE `appointments` SET `reason` = '" + reason + "' WHERE `patientID` = '" + patientIDs + "'";
-                newValue = "Reason: " + reason;
-                break;
-
-                case "Status":
-                String status = AS.getSelectedItem().toString();
-                if (status.equals("None")) {
-                    JOptionPane.showMessageDialog(null, "Status is required!");
-                    return;
-                }
-                query = "UPDATE `appointments` SET `status` = '" + status + "' WHERE `patientID` = '" + patientIDs + "'";
-                newValue = "Status: " + status;
-                break;
-
-                default:
-                JOptionPane.showMessageDialog(null, "Invalid selection.");
-                return;
-            }
-
-            // Execute the update query
-            int rowsAffected = state.executeUpdate(query);
-
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(rootPane, newValue + " updated successfully.");
-            } else {
-                JOptionPane.showMessageDialog(null, "No matching appointment found for the given Patient ID.");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Failed to update appointment: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
-        }
-
-        // Refresh table and reset fields
-        populateHomeTable();
-        AP.setText("");
-        AM.setSelectedItem("MM");
-        AD.setSelectedItem("DD");
-        AY.setSelectedItem("YY");
-        AR.setSelectedItem("None");
-        AT.setSelectedItem("None");
-        AS.setSelectedItem("None");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        // Get the patientID and appointment date as identifying criteria
-        String patientID = AP.getText();
-        String month = AM.getSelectedItem().toString();
-        String day = AD.getSelectedItem().toString();
-        String year = AY.getSelectedItem().toString();
-        String date = year + "-" + month + "-" + day;
-
-        if (patientID.equals("")) {
-            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
-        }
-        else {
-            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to remove this appointment?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
-            if (confirm == JOptionPane.YES_OPTION) {
-                // Execute the delete query
-                try {
-                    int patientIDs = Integer.parseInt(patientID);
-                    Statement state = kon.createStatement();
-
-                    // DELETE query using patientID and date as criteria
-                    String query = "DELETE FROM `appointments` WHERE `patientID` = '" + patientIDs + "'";
-                    int rowsAffected = state.executeUpdate(query);
-
-                    if (rowsAffected > 0) {
-                        JOptionPane.showMessageDialog(rootPane, "Appointment Removed Successfully");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No matching appointment found for the given Patient ID and Date");
-                    }
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Failed to remove appointment: " + e.getMessage());
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
-                }
-            }
-
-        }
+ 
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String month = AM.getSelectedItem().toString();
-        String day = AD.getSelectedItem().toString();
-        String year = AY.getSelectedItem().toString();
-        String time = AT.getSelectedItem().toString();
-        String reason = AR.getSelectedItem().toString();
-        String status= AS.getSelectedItem().toString();
-        String patientID = AP.getText();
-        String date = year+"-"+ month +"-"+ day;
-
-        if(patientID.equals("")){
-            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
-        }
-        else if(month.equals("MM")){
-            JOptionPane.showMessageDialog(null, "MONTH IS REQUIRED!!!");
-        }
-        else if(day.equals("DD")){
-            JOptionPane.showMessageDialog(null, "DAY IS REQUIRED!!!");
-        }
-        else if(year.equals("YY")){
-            JOptionPane.showMessageDialog(null, "Year IS REQUIRED!!!");
-        }
-        else if(time.equals("None")){
-            JOptionPane.showMessageDialog(null, "TIME IS REQUIRED!!!");
-        }
-        else if(reason.equals("None")){
-            JOptionPane.showMessageDialog(null, "REASON IS REQUIRED!!!");
-        }
-        else if(status.equals("None")){
-            JOptionPane.showMessageDialog(null, "STATUS IS REQUIRED!!!");
-        }
-        else{
-            try{
-                int patientIDs = Integer.parseInt(patientID);
-                Statement state = kon.createStatement();
-                //INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `time`, `reason`, `status`) VALUES (NULL, '2', '202-12-24', '9:00 AM', 'Routine eye exam', 'Returning Patient');
-                String query = "INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `time`, `reason`, `status`) VALUES (NULL, '"+patientIDs+"', '"+date+"', '"+time+"', '"+reason+"', '"+status+"')";
-                state.execute(query);
-                JOptionPane.showMessageDialog(rootPane, "Record Added");
-
-            }
-            catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
-            }
-        }
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        populateHomeTable();
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

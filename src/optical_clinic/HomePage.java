@@ -189,11 +189,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        Frame FR = new Frame();
-        FR.setVisible(true);
-        FR.pack();
-        FR.setLocationRelativeTo(null);
-        dispose();
+     
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -225,6 +221,11 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+                Product PR = new Product();
+        PR.setVisible(true);
+        PR.pack();
+        PR.setLocationRelativeTo(null);
+        dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
 
    

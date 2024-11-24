@@ -57,7 +57,6 @@ public class Patient extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -215,7 +214,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 31));
 
         PG.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None ", "Male", "Female", " ", " " }));
+        PG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female", "", "" }));
         PG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         PG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,17 +344,6 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel9.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 200, 70));
 
-        jButton9.setBackground(new java.awt.Color(209, 234, 240));
-        jButton9.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
-        jButton9.setText("PATIENT REGISTRATAION");
-        jButton9.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 220, 60));
-
         jButton10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton10.setText("APPOINTMENT");
         jButton10.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
@@ -364,7 +352,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 60));
+        jPanel9.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         jButton11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton11.setText("EXAMINATION");
@@ -450,16 +438,6 @@ public class Patient extends javax.swing.JFrame {
         AT.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-        Patient PT = new Patient();
-        PT.setVisible(true);
-        PT.pack();
-        PT.setLocationRelativeTo(null);
-        dispose();
-        
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
@@ -767,10 +745,10 @@ public class Patient extends javax.swing.JFrame {
         else if(address.equals("")){
             JOptionPane.showMessageDialog(null, "ADDRESS IS REQUIRED!!!");
         }
-        else if(insurance.equals("")){
+        else if(insurance.equals("None")){
             JOptionPane.showMessageDialog(null, "INSURANCE IS REQUIRED!!!");
         }
-        else if(medicalhistory.equals("")){
+        else if(medicalhistory.equals("None")){
             JOptionPane.showMessageDialog(null, "MEDICAL HISTORY IS REQUIRED!!!");
         }
         else{
@@ -778,7 +756,6 @@ public class Patient extends javax.swing.JFrame {
                 Statement state = kon.createStatement();
                 String query = "INSERT INTO `patients` (`patientID`, `patientName`, `patientAge`, `gender`, `contactNumber`, `address`, `insurance`, `medicalHistory`) VALUES (NULL, '"+name+"', '"+age+"', '"+gender+"', '"+contactnumber+"', '"+address+"', '"+insurance+"', '"+medicalhistory+"')";
                 state.execute(query);
-                JOptionPane.showMessageDialog(rootPane, "String query = \"INSERT INTO `patients` (`patientID`, `patientName`, `patientAge`, `gender`, `contactNumber`, `address`, `insurance`, `medicalHistory`) VALUES (NULL, '\"+name+\"', '\"+age+\"', '\"+gender+\"', '\"+contactnumber+\"', '\"+address+\"', '\"+insurance+\"', '\"+medicalhistory+\"')\"");
                 JOptionPane.showMessageDialog(rootPane, "Record Added");
 
             }
@@ -807,10 +784,10 @@ public class Patient extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        Solution SL = new Solution();
-        SL.setVisible(true);
-        SL.pack();
-        SL.setLocationRelativeTo(null);
+        Product PR = new Product();
+        PR.setVisible(true);
+        PR.pack();
+        PR.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
@@ -945,7 +922,6 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
