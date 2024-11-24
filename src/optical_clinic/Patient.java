@@ -96,9 +96,9 @@ public class Patient extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton16)
-                .addGap(156, 156, 156)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(387, Short.MAX_VALUE))
+                .addGap(295, 295, 295)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(386, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +152,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 110, 60));
 
         PN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PNActionPerformed(evt);
@@ -161,7 +161,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(PN, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 330, 31));
 
         PC.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PC.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PCActionPerformed(evt);
@@ -175,7 +175,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(PC, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 330, 31));
 
         PA.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PA.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PAActionPerformed(evt);
@@ -185,7 +185,7 @@ public class Patient extends javax.swing.JFrame {
 
         PI.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Short-Term Health Insurance", "Medicare", "Medicaid", "TRICARE", "VA Health Benefits", "Dental Insurance", "Vision Insurance", "Critical Illness Insurance", "Hospital Indemnity Insurance", "Accident Insurance", "Long-Term Care Insurance", "International Health Insurance", "Student Health Insurance", "Travel Health Insurance", "COBRA", "Others" }));
-        PI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PI.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PIActionPerformed(evt);
@@ -195,7 +195,7 @@ public class Patient extends javax.swing.JFrame {
 
         PMH.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PMH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Eye Conditions", "Eye Surgeries and Procedures", "Eye Injuries", "Family Eye Health History", "Other Relevant Health Conditions", "Symptoms or Current Concerns" }));
-        PMH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PMH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.add(PMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 330, 31));
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
@@ -215,7 +215,7 @@ public class Patient extends javax.swing.JFrame {
 
         PG.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female", "", "" }));
-        PG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PG.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PGActionPerformed(evt);
@@ -224,7 +224,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(PG, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 330, 33));
 
         PAG.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PAG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
+        PAG.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PAG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PAGActionPerformed(evt);
@@ -284,6 +284,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 110, 60));
 
         searchField.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        searchField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchFieldActionPerformed(evt);
@@ -291,7 +292,7 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel3.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 220, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 559, 480));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 559, 460));
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
@@ -329,8 +330,9 @@ public class Patient extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 440, 480));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 440, 460));
 
+        jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setOpaque(false);
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -342,7 +344,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 200, 70));
+        jPanel9.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 200, 60));
 
         jButton10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton10.setText("APPOINTMENT");
@@ -352,7 +354,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
+        jPanel9.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 60));
 
         jButton11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton11.setText("EXAMINATION");
@@ -362,7 +364,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 60));
+        jPanel9.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 60));
 
         jButton12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton12.setText("PRESCRIPTION");
@@ -372,7 +374,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 200, 60));
+        jPanel9.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 200, 60));
 
         jButton13.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton13.setText("PRODUCTS");
@@ -382,7 +384,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 200, 60));
+        jPanel9.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 60));
 
         jButton14.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton14.setText("REPORTS");
@@ -392,9 +394,9 @@ public class Patient extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 60));
+        jPanel9.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 480));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -402,11 +404,11 @@ public class Patient extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1253, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
