@@ -148,6 +148,7 @@ public class Solution extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/solution (1).png"))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -156,7 +157,7 @@ public class Solution extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43))
+                .addGap(8, 8, 8))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +168,7 @@ public class Solution extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel2.setText("Name");
+        jLabel2.setText("Brand Name");
 
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel3.setText("Price");
@@ -224,7 +225,7 @@ public class Solution extends javax.swing.JFrame {
         });
 
         SN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        SN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Artificial tears", "Saline solutions", "Antibiotic drops", "Antihistamine drops", "Decongestant drops", "Lubricating gels and ointments", "Steroid drops", "Antiviral drops", "Glaucoma drops", "Diagnostic drops" }));
+        SN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Systane", "Refresh", "Blink Tears", "PuriLens Plus", "Tobrex Vigamox", "Lotemax", "Viroptic Zirgan" }));
         SN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         SN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,40 +277,39 @@ public class Solution extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel5)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(SQ, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                            .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(SP)
-                                        .addComponent(SN, 0, 1, Short.MAX_VALUE))
-                                    .addComponent(ST, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                                .addComponent(jButton7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(SQ, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SP)
+                                .addComponent(SN, 0, 1, Short.MAX_VALUE))
+                            .addComponent(ST, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addComponent(jButton7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -446,36 +446,48 @@ public class Solution extends javax.swing.JFrame {
         String price = SP.getText().toString();
         String quantity = SQ.getText().toString();
         String type = ST.getSelectedItem().toString();
-        
-        if(name.equals("None")){
+
+        if (name.equals("None")) {
             JOptionPane.showMessageDialog(null, "SOLUTION NAME IS REQUIRED!!!");
-        }
-        else if(price.equals("")){
+        } else if (price.equals("")) {
             JOptionPane.showMessageDialog(null, "PRICE IS REQUIRED!!!");
-        }
-        else if(quantity.equals("")){
+        } else if (quantity.equals("")) {
             JOptionPane.showMessageDialog(null, "QUANTITY IS REQUIRED!!!");
-        }
-        else if(type.equals("None")){
-            JOptionPane.showMessageDialog(null, "SULOTION TYPE IS REQUIRED!!!");
-        }
-        else {
-            try{
-                Statement state = kon.createStatement();
-                String query = "INSERT INTO `solutions` (`solutionID`, `name`, `price`, `quantity`, `type`) VALUES (NULL, '"+name+"', '"+price+"', '"+quantity+"', '"+type+"')";
-                state.execute(query);
-                JOptionPane.showMessageDialog(rootPane, "Record Added");
-                 
-       
-            } 
-            catch (Exception e) {
+        } else if (type.equals("None")) {
+            JOptionPane.showMessageDialog(null, "SOLUTION TYPE IS REQUIRED!!!");
+        } else {
+            try {
+                // Check if the combination of name and type already exists
+                Statement checkState = kon.createStatement();
+                String checkQuery = "SELECT COUNT(*) AS count FROM `solutions` WHERE `solutionName` = '" + name + "' AND `solutionType` = '" + type + "'";
+                ResultSet result = checkState.executeQuery(checkQuery);
+
+                if (result.next() && result.getInt("count") > 0) {
+                    // Combination exists
+                    JOptionPane.showMessageDialog(null, "This solution name and type combination already exists!");
+                } else {
+                    // Insert the new record
+                    Statement insertState = kon.createStatement();
+                    String insertQuery = "INSERT INTO `solutions` (`solutionID`, `solutionName`, `solutionPrice`, `solutionQuantity`, `solutionType`) VALUES (NULL, '" + name + "', '" + price + "', '" + quantity + "', '" + type + "')";
+                    insertState.execute(insertQuery);
+                    JOptionPane.showMessageDialog(rootPane, "Record Added");
+                }
+
+                // Clean up
+                result.close();
+                checkState.close();
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
             }
         }
+
+        // Refresh the table and reset the form
+        populateHomeTable();
         SN.setSelectedItem("None");
         SP.setText("");
         SQ.setText("");
-        ST.setSelectedItem("Noney");
+        ST.setSelectedItem("None");
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -560,10 +572,10 @@ public class Solution extends javax.swing.JFrame {
             while (rs.next()) {
                 model.addRow(new Object[]{
                     rs.getInt("solutionID"),
-                    rs.getString("name"),
-                    rs.getString("price"),
-                    rs.getString("quantity"),
-                    rs.getString("type"),
+                    rs.getString("solutionName"),
+                    rs.getString("solutionPrice"),
+                    rs.getString("solutionQuantity"),
+                    rs.getString("solutionType"),
                 });
             }
             jTable1.setModel(model);

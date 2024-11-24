@@ -316,7 +316,7 @@ public class Frame extends javax.swing.JFrame {
                         .addContainerGap())))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(114, 114, 114)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -451,39 +451,49 @@ public class Frame extends javax.swing.JFrame {
         String quantity = FQ.getText();
         String shape = FS.getSelectedItem().toString();
         String material = FM.getSelectedItem().toString();
-        
-        if(price.equals("")){
+
+        if (price.equals("")) {
             JOptionPane.showMessageDialog(null, "PRICE IS REQUIRED!!!");
-        }
-        else if(quantity.equals("")){
+        } else if (quantity.equals("")) {
             JOptionPane.showMessageDialog(null, "QUANTITY IS REQUIRED!!!");
-        }
-        else if(shape.equals("None")){
+        } else if (shape.equals("None")) {
             JOptionPane.showMessageDialog(null, "FRAME SHAPE IS REQUIRED!!!");
-        }
-        else if(material.equals("")){
+        } else if (material.equals("")) {
             JOptionPane.showMessageDialog(null, "FRAME MATERIAL IS REQUIRED!!!");
-        }
-        else {
-            try{
-                Statement state = kon.createStatement();
-                //INSERT INTO `frames` (`frameID`, `price`, `quantity`, `shape`, `material`) VALUES (NULL, '500', '1', 'Round', 'Metal');
-                String query = "INSERT INTO `frames` (`frameID`, `price`, `quantity`, `shape`, `material`) VALUES (NULL, '"+price+"', '"+quantity+"', '"+shape+"', '"+material+"')";
-                state.execute(query);
-                JOptionPane.showMessageDialog(rootPane, "Record Added");
-                 
-       
-            } 
-            catch (Exception e) {
+        } else {
+            try {
+                // Check if shape and material combination already exists
+                Statement checkState = kon.createStatement();
+                String checkQuery = "SELECT COUNT(*) AS count FROM `frames` WHERE `shape` = '" + shape + "' AND `frameMaterial` = '" + material + "'";
+                ResultSet result = checkState.executeQuery(checkQuery);
+
+                if (result.next() && result.getInt("count") > 0) {
+                    // Combination exists
+                    JOptionPane.showMessageDialog(null, "This shape and material combination already exists!");
+                } else {
+                    // Insert the new record
+                    Statement insertState = kon.createStatement();
+                    //INSERT INTO `frames` (`frameID`, `shape`, `frameMaterial`, `framePrice`, `frameQuantity`) VALUES (NULL, '', NULL, NULL, NULL)
+                    String insertQuery = "INSERT INTO `frames` (`frameID`, `shape`, `frameMaterial`, `framePrice`, `frameQuantity`) VALUES (NULL, '" + shape + "', '" + material + "', '" + price + "', '" + quantity + "')";
+                    insertState.execute(insertQuery);
+                    JOptionPane.showMessageDialog(rootPane, "Record Added");
+                }
+
+                // Clean up
+                result.close();
+                checkState.close();
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
             }
         }
+        populateHomeTable();
+        // Reset the form fields
         FN.setText("Auto Fill");
         FP.setText("");
         FQ.setText("");
         FS.setSelectedItem("None");
         FM.setSelectedItem("None");
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void FPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FPKeyTyped
@@ -576,10 +586,10 @@ public class Frame extends javax.swing.JFrame {
             while (rs.next()) {
                 model.addRow(new Object[]{
                     rs.getInt("frameID"),
-                    rs.getInt("price"),
-                    rs.getString("quantity"),
+                    rs.getInt("framePrice"),
+                    rs.getString("frameQuantity"),
                     rs.getString("shape"),
-                    rs.getString("material"),
+                    rs.getString("frameMaterial"),
                 });
             }
             jTable1.setModel(model);

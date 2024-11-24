@@ -50,8 +50,6 @@ public class Appointment extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -59,6 +57,10 @@ public class Appointment extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -90,9 +92,9 @@ public class Appointment extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton5)
-                .addGap(370, 370, 370)
+                .addGap(334, 334, 334)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(478, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +161,7 @@ public class Appointment extends javax.swing.JFrame {
         jLabel6.setText("Status");
 
         AS.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        AS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Shedule", "Completed" }));
+        AS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Scheduled", "Completed" }));
         AS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +274,7 @@ public class Appointment extends javax.swing.JFrame {
                                     .addComponent(AT, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(AD, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(AM, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(AY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -338,42 +340,6 @@ public class Appointment extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
-
-        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3)));
-        jScrollPane1.setFont(new java.awt.Font("Lucida Sans", 0, 8)); // NOI18N
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(880, 426));
-
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 9)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Patient ID", "Name", "AppointmentID", "Date", "Time", "Reason", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(120);
-        }
 
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -466,8 +432,47 @@ public class Appointment extends javax.swing.JFrame {
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(13, Short.MAX_VALUE))
         );
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "PatientID", "Name", "Appointment ID", "Date", "Time", "Reason", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane11.setViewportView(jTable6);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+
+        jScrollPane10.setViewportView(jPanel4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -481,8 +486,8 @@ public class Appointment extends javax.swing.JFrame {
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(6, 6, 6))
         );
         jPanel1Layout.setVerticalGroup(
@@ -491,10 +496,11 @@ public class Appointment extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -502,13 +508,11 @@ public class Appointment extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -712,7 +716,7 @@ public class Appointment extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Time is required!");
                     return;
                 }
-                query = "UPDATE `appointments` SET `time` = '" + time + "' WHERE `patientID` = '" + patientIDs + "'";
+                query = "UPDATE `appointments` SET `appointmentTime` = '" + time + "' WHERE `patientID` = '" + patientIDs + "'";
                 newValue = "Time: " + time;
                 break;
 
@@ -823,32 +827,33 @@ public class Appointment extends javax.swing.JFrame {
             try {
                 int patientIDs = Integer.parseInt(patientID);
 
-        // Check if the selected time is already occupied
-        String checkQuery = "SELECT * FROM `appointments` WHERE `appointmentDate` = ? AND `time` = ?";
-        PreparedStatement checkStmt = kon.prepareStatement(checkQuery);
-        checkStmt.setString(1, date);
-        checkStmt.setString(2, time);
+                // Check if the selected time is already occupied
+                String checkQuery = "SELECT * FROM `appointments` WHERE `appointmentDate` = ? AND `appointmentTime` = ?";
+                PreparedStatement checkStmt = kon.prepareStatement(checkQuery);
+                checkStmt.setString(1, date);
+                checkStmt.setString(2, time);
 
-        ResultSet rs = checkStmt.executeQuery();
-        if (rs.next()) {
-            JOptionPane.showMessageDialog(null, "The selected time is already occupied. Please choose another time.");
-        } else {
-            // Insert the new appointment
-            String query = "INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `time`, `reason`, `status`) VALUES (NULL, ?, ?, ?, ?, ?)";
-            PreparedStatement insertStmt = kon.prepareStatement(query);
-            insertStmt.setInt(1, patientIDs);
-            insertStmt.setString(2, date);
-            insertStmt.setString(3, time);
-            insertStmt.setString(4, reason);
-            insertStmt.setString(5, status);
+                ResultSet rs = checkStmt.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "The selected time is already occupied. Please choose another time.");
+                } else {
+                    // Insert the new appointment
+                    String query = "INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `appointmentTime`, `reason`, `status`) VALUES (NULL, ?, ?, ?, ?, ?)";
+                    PreparedStatement insertStmt = kon.prepareStatement(query);
+                    insertStmt.setInt(1, patientIDs);
+                    insertStmt.setString(2, date);
+                    insertStmt.setString(3, time);
+                    insertStmt.setString(4, reason);
+                    insertStmt.setString(5, status);
 
-            insertStmt.executeUpdate();
-            JOptionPane.showMessageDialog(rootPane, "Record Added");
+                    insertStmt.executeUpdate();
+                    JOptionPane.showMessageDialog(rootPane, "Record Added");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
+            }
         }
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
-    }
-}
+        populateHomeTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASActionPerformed
@@ -889,7 +894,7 @@ public class Appointment extends javax.swing.JFrame {
                                p.patientName AS PatientName,
                                a.appointmentID AS AppointmentID,
                                a.appointmentDate AS AppointmentDate,
-                               a.time AS AppointmentTime,
+                               a.appointmentTime AS AppointmentTime,
                                a.reason AS AppointmentReason,
                                a.status AS AppointmentStatus
                            FROM 
@@ -922,25 +927,22 @@ public class Appointment extends javax.swing.JFrame {
                     rs.getString("appointmentStatus")
                 });
             }
-            jTable1.setModel(model);
+            jTable6.setModel(model);
+            
+            TableColumnModel columnModel = jTable6.getColumnModel();
 
-            // Set column sizing
-            jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // Prevent auto resizing
-            TableColumnModel columnModel = jTable1.getColumnModel();
-
-            columnModel.getColumn(0).setPreferredWidth(100); // PatientID
             columnModel.getColumn(1).setPreferredWidth(150); // Name
-            columnModel.getColumn(2).setPreferredWidth(120); // Appointment ID
-            columnModel.getColumn(3).setPreferredWidth(100); // Date
-            columnModel.getColumn(4).setPreferredWidth(80);  // Time
-            columnModel.getColumn(5).setPreferredWidth(200); // Reason
-            columnModel.getColumn(6).setPreferredWidth(100); // Status
+            columnModel.getColumn(2).setPreferredWidth(100); // Appointment ID
+            columnModel.getColumn(5).setPreferredWidth(180); // Reason
+
+
+
+
 
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Error loading data: " + e.getMessage());
         }
-        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
     }
 
@@ -1017,9 +1019,27 @@ public class Appointment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 }

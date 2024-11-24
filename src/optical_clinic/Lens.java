@@ -563,39 +563,50 @@ public class Lens extends javax.swing.JFrame {
         String quantity = LQ.getText();
         String feature = LF.getSelectedItem().toString();
 
-        if(material.equals("none")){
+        if (material.equals("none")) {
             JOptionPane.showMessageDialog(null, "MATERIAL IS REQUIRED!!!");
-        }
-        else if(thickness.equals("none")){
+        } else if (thickness.equals("none")) {
             JOptionPane.showMessageDialog(null, "INDEX IS REQUIRED!!!");
-        }
-        else if(price.equals("")){
+        } else if (price.equals("")) {
             JOptionPane.showMessageDialog(null, "PRICE IS REQUIRED!!!");
-        }
-        else if(quantity.equals("")){
+        } else if (quantity.equals("")) {
             JOptionPane.showMessageDialog(null, "QUANTITY IS REQUIRED!!!");
-        }
-        else if(feature.equals("none")){
+        } else if (feature.equals("none")) {
             JOptionPane.showMessageDialog(null, "FEATURE IS REQUIRED!!!");
-        }
-        else {
-            try{
-                Statement state = kon.createStatement();
-                String query = "INSERT INTO `lens` (`lensID`, `material`, `thickness`, `price`, `quantity`, `feature`) VALUES (NULL, '"+material+"', '"+thickness+"', '"+price+"', '"+quantity+"', '"+feature+"')";
-                state.execute(query);
-                JOptionPane.showMessageDialog(rootPane, "Record Added");
+        } else {
+            try {
+                // Check if the combination of material, thickness, and feature already exists
+                Statement checkState = kon.createStatement();
+                String checkQuery = "SELECT COUNT(*) AS count FROM `lens` WHERE `lensMaterial` = '" + material + "' AND `thickness` = '" + thickness + "' AND `lensFeature` = '" + feature + "'";
+                ResultSet result = checkState.executeQuery(checkQuery);
 
-            }
-            catch (Exception e) {
+                if (result.next() && result.getInt("count") > 0) {
+                    // Combination exists
+                    JOptionPane.showMessageDialog(null, "This material, thickness, and feature combination already exists!");
+                } else {
+                    // Insert the new record
+                    Statement insertState = kon.createStatement();
+                    String insertQuery = "INSERT INTO `lens` (`lensID`, `lensMaterial`, `thickness`, `lensFeature`, `lensPrice`, `lensQuantity`) VALUES (NULL, '" + material + "', '" + thickness + "', '" + feature + "', '" + price + "', '" + quantity + "')";
+                    insertState.execute(insertQuery);
+                    JOptionPane.showMessageDialog(rootPane, "Record Added");
+                }
+
+                // Clean up
+                result.close();
+                checkState.close();
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
             }
         }
 
+        // Refresh the table and reset the form
+        populateHomeTable();
         LM.setSelectedItem("none");
         LI.setSelectedItem("none");
         LP.setText("");
         LQ.setText("");
         LF.setSelectedItem("none");
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void LFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LFActionPerformed
@@ -656,18 +667,19 @@ public class Lens extends javax.swing.JFrame {
             model.addColumn("Lens ID");
             model.addColumn("Material");
             model.addColumn("Thickness");
+            model.addColumn("Feature");
             model.addColumn("Price");
             model.addColumn("Quantity");
-            model.addColumn("Feature");
 
             while (rs.next()) {
                 model.addRow(new Object[]{
                     rs.getInt("lensID"),
-                    rs.getString("material"),
+                    rs.getString("lensMaterial"),
                     rs.getString("thickness"),
-                    rs.getString("price"),
-                    rs.getString("quantity"),
-                    rs.getString("feature"),
+                    rs.getString("lensFeature"),
+                    rs.getString("lensPrice"),
+                    rs.getString("lensQuantity"),
+
                 });
             }
             jTable1.setModel(model);
@@ -679,9 +691,9 @@ public class Lens extends javax.swing.JFrame {
             columnModel.getColumn(0).setPreferredWidth(80);  // Lens ID
             columnModel.getColumn(1).setPreferredWidth(120); // Material
             columnModel.getColumn(2).setPreferredWidth(150); // Thickness
-            columnModel.getColumn(3).setPreferredWidth(80);  // Price
+            columnModel.getColumn(5).setPreferredWidth(80);  // Price
             columnModel.getColumn(4).setPreferredWidth(80);  // Quantity
-            columnModel.getColumn(5).setPreferredWidth(150); // Feature
+            columnModel.getColumn(3).setPreferredWidth(150); // Feature
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Error loading data: " + e.getMessage());

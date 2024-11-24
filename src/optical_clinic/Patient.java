@@ -53,8 +53,6 @@ public class Patient extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -62,6 +60,10 @@ public class Patient extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -299,39 +301,6 @@ public class Patient extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, 435));
 
-        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3)));
-        jScrollPane1.setFont(new java.awt.Font("Lucida Sans", 0, 8)); // NOI18N
-
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        jTable1.setFont(new java.awt.Font("Lucida Sans", 1, 9)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Name", "Age", "Gender", "ContactNumber", "Address", "Insurance", "MedicalHistory"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 440, 460));
-
         jPanel9.setBackground(new java.awt.Color(204, 204, 204));
         jPanel9.setOpaque(false);
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -397,6 +366,48 @@ public class Patient extends javax.swing.JFrame {
         jPanel9.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 480));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Patient ID", "Name", "Age", "Gender", "Contact", "Address", "Insurance", "Medical History"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jScrollPane2.setViewportView(jPanel5);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 440, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -841,23 +852,20 @@ public class Patient extends javax.swing.JFrame {
             }
             jTable1.setModel(model);
 
-            // Set column widths
-            jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // Disable auto-resize
             TableColumnModel columnModel = jTable1.getColumnModel();
 
             columnModel.getColumn(0).setPreferredWidth(80);  // Patient ID
-            columnModel.getColumn(1).setPreferredWidth(150); // Name
+            columnModel.getColumn(1).setPreferredWidth(200); // Name
             columnModel.getColumn(2).setPreferredWidth(50);  // Age
             columnModel.getColumn(3).setPreferredWidth(70);  // Gender
-            columnModel.getColumn(4).setPreferredWidth(120); // Contact
-            columnModel.getColumn(5).setPreferredWidth(200); // Address
-            columnModel.getColumn(6).setPreferredWidth(150); // Insurance
-            columnModel.getColumn(7).setPreferredWidth(180); // Medical History
+            columnModel.getColumn(4).setPreferredWidth(180); // Contact
+            columnModel.getColumn(5).setPreferredWidth(220); // Address
+            columnModel.getColumn(6).setPreferredWidth(250); // Insurance
+            columnModel.getColumn(7).setPreferredWidth(250); // Medical History
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Error loading data: " + e.getMessage());
         }
-        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     }
 
     
@@ -936,8 +944,10 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
