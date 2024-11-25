@@ -53,7 +53,7 @@ public class Logins extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-login-new.png"))); // NOI18N
         jButton2.setText("Login");
-        jButton2.setBorder(null);
+        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

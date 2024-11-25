@@ -48,7 +48,7 @@ public class HomePage extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Lucida Fax", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/patient 2 icon 23.png"))); // NOI18N
         jButton1.setText(" Patient Registration");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 0, true));
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -124,6 +124,7 @@ public class HomePage extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-logout-29.png"))); // NOI18N
         jButton2.setText("Logout");
+        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

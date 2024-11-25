@@ -141,17 +141,16 @@ public class Patient extends javax.swing.JFrame {
         jLabel8.setText("Medical History");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 37));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-submit-new.png"))); // NOI18N
         jButton1.setText("Submit");
-        jButton1.setBorder(null);
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 110, 60));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 100, 40));
 
         PN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -198,6 +197,11 @@ public class Patient extends javax.swing.JFrame {
         PMH.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PMH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Eye Conditions", "Eye Surgeries and Procedures", "Eye Injuries", "Family Eye Health History", "Other Relevant Health Conditions", "Symptoms or Current Concerns" }));
         PMH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PMH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PMHActionPerformed(evt);
+            }
+        });
         jPanel3.add(PMH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 330, 31));
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
@@ -249,41 +253,38 @@ public class Patient extends javax.swing.JFrame {
         });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 90, 30));
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-remove-new.png"))); // NOI18N
         jButton5.setText("Remove");
-        jButton5.setBorder(null);
+        jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 110, 60));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 90, 40));
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-new.png"))); // NOI18N
         jButton6.setText("Update");
-        jButton6.setBorder(null);
+        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 130, 60));
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 90, 40));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-new.png"))); // NOI18N
         jButton4.setText("View");
-        jButton4.setBorder(null);
+        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 110, 60));
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 90, 40));
 
         searchField.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         searchField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -708,6 +709,21 @@ public class Patient extends javax.swing.JFrame {
 
     private void PIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PIActionPerformed
         // TODO add your handling code here:
+        String insurance = PI.getSelectedItem().toString();
+        if (insurance.equals("Others")) {
+            String otherInsurance = JOptionPane.showInputDialog(null, "Please specify the insurance:");
+            if (otherInsurance == null || otherInsurance.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must specify the insurance type!");
+                return; 
+            }
+
+            insurance = otherInsurance.trim(); 
+            
+            int selectedIndex = PI.getSelectedIndex(); 
+            PI.insertItemAt(insurance, selectedIndex); 
+            PI.removeItemAt(selectedIndex + 1); 
+            PI.setSelectedItem(insurance);
+        }
     }//GEN-LAST:event_PIActionPerformed
 
     private void PAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PAActionPerformed
@@ -735,14 +751,14 @@ public class Patient extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String name = PN.getText().toString();
+       String name = PN.getText().toString();
         String age = PAG.getText().toString();
         String gender = PG.getSelectedItem().toString();
         String contactnumber = PC.getText().toString();
         String address = PA.getText().toString();
         String insurance = PI.getSelectedItem().toString();
         String medicalhistory = PMH.getSelectedItem().toString();
-
+        
         if(name.equals("")){
             JOptionPane.showMessageDialog(null, "NAME IS REQUIRED!!!");
         }
@@ -765,18 +781,37 @@ public class Patient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "MEDICAL HISTORY IS REQUIRED!!!");
         }
         else{
-            try{
+            try {
                 Statement state = kon.createStatement();
-                String query = "INSERT INTO `patients` (`patientID`, `patientName`, `patientAge`, `gender`, `contactNumber`, `address`, `insurance`, `medicalHistory`) VALUES (NULL, '"+name+"', '"+age+"', '"+gender+"', '"+contactnumber+"', '"+address+"', '"+insurance+"', '"+medicalhistory+"')";
-                state.execute(query);
-                JOptionPane.showMessageDialog(rootPane, "Record Added");
 
-            }
-            catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
+                // Check if the patient already exists
+                String checkQuery = "SELECT * FROM patients WHERE patientName = '"+name+"'";
+                ResultSet resultSet = state.executeQuery(checkQuery);
+
+                if (resultSet.next()) {
+                    // Patient exists, ask if user wants to update
+                    int response = JOptionPane.showConfirmDialog(null, "Patient already exists. Do you want to update their details?", "Duplicate Found", JOptionPane.YES_NO_OPTION);
+
+                    if (response == JOptionPane.YES_OPTION) {
+                        // Update existing patient details
+                        String updateQuery = "UPDATE patients SET patientName = '"+name+"', patientAge = '"+age+"', gender = '"+gender+"', address = '"+address+"', insurance = '"+insurance+"', medicalHistory = '"+medicalhistory+"' WHERE contactNumber = '"+contactnumber+"'";
+                        state.execute(updateQuery);
+                        JOptionPane.showMessageDialog(rootPane, "Patient record updated.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No changes were made.");
+                    }
+                } else {
+                    // Insert new patient record
+                    String insertQuery = "INSERT INTO patients (patientID, patientName, patientAge, gender, contactNumber, address, insurance, medicalHistory) VALUES (NULL, '"+name+"', '"+age+"', '"+gender+"', '"+contactnumber+"', '"+address+"', '"+insurance+"', '"+medicalhistory+"')";
+                    state.execute(insertQuery);
+                    JOptionPane.showMessageDialog(rootPane, "New patient record added.");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Operation failed: " + e.getMessage());
             }
         }
         populateHomeTable();
+
         PN.setText("");
         PAG.setText("");
         PG.setSelectedItem("None");
@@ -821,6 +856,25 @@ public class Patient extends javax.swing.JFrame {
         // TODO add your handling code here:
         populateHomeTable();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void PMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PMHActionPerformed
+        // TODO add your handling code here:
+        String medicalhistory = PMH.getSelectedItem().toString();
+        if (medicalhistory.equals("Others")) {
+            String otherMedical = JOptionPane.showInputDialog(null, "Please specify the medical history:");
+            if (otherMedical == null || otherMedical.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must specify your medical history!");
+                return; 
+            }
+
+            medicalhistory = otherMedical.trim(); 
+
+            int selectedIndex = PMH.getSelectedIndex(); 
+            PMH.insertItemAt(medicalhistory, selectedIndex); 
+            PMH.removeItemAt(selectedIndex + 1); 
+            PMH.setSelectedItem(medicalhistory); 
+        }
+    }//GEN-LAST:event_PMHActionPerformed
     public void populateHomeTable() {
         try {
             String query = "SELECT * FROM `patients`";
