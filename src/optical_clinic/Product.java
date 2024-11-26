@@ -157,6 +157,11 @@ public class Product extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         S.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         S.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +218,7 @@ public class Product extends javax.swing.JFrame {
         });
 
         jButton8.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-new.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-logs-35.png"))); // NOI18N
         jButton8.setText("Logs");
         jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -864,6 +869,10 @@ public class Product extends javax.swing.JFrame {
          loadLogs();
 
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
                                        
     
     private void populateHomeTable() {
