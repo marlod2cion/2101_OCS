@@ -183,6 +183,11 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        Reports RP = new Reports();
+        RP.setVisible(true);
+        RP.pack();
+        RP.setLocationRelativeTo(null);
+        dispose();
      
     }//GEN-LAST:event_jButton11ActionPerformed
 
