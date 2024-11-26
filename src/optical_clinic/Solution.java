@@ -236,7 +236,7 @@ public class Solution extends javax.swing.JFrame {
         });
 
         SN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        SN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Systane", "Refresh", "Blink Tears", "PuriLens Plus", "Tobrex Vigamox", "Lotemax", "Viroptic Zirgan" }));
+        SN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Systane", "Refresh", "Blink Tears", "PuriLens Plus", "Tobrex Vigamox", "Lotemax", "Viroptic Zirgan", "Others" }));
         SN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
         SN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,6 +575,21 @@ public class Solution extends javax.swing.JFrame {
 
     private void SNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SNActionPerformed
         // TODO add your handling code here:
+        String name = SN.getSelectedItem().toString();
+        if (name.equals("Others")) {
+            String othername = JOptionPane.showInputDialog(null, "Please specify the brand name:");
+            if (othername == null || othername.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must specify the brand name!");
+                return; 
+            }
+
+            name = othername.trim(); 
+            
+            int selectedIndex = SN.getSelectedIndex(); 
+            SN.insertItemAt(name, selectedIndex); 
+            SN.removeItemAt(selectedIndex + 1); 
+            SN.setSelectedItem(name);
+        }
     }//GEN-LAST:event_SNActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

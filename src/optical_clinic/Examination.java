@@ -541,6 +541,21 @@ public class Examination extends javax.swing.JFrame {
 
     private void ERTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ERTActionPerformed
         // TODO add your handling code here:
+        String result = ERT.getSelectedItem().toString();
+        if (result.equals("Others")) {
+            String otherresult = JOptionPane.showInputDialog(null, "Please specify the result:");
+            if (otherresult == null || otherresult.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must specify the result!");
+                return; 
+            }
+
+            result = otherresult.trim(); 
+            
+            int selectedIndex = ERT.getSelectedIndex(); 
+            ERT.insertItemAt(result, selectedIndex); 
+            ERT.removeItemAt(selectedIndex + 1); 
+            ERT.setSelectedItem(result);
+        }
     }//GEN-LAST:event_ERTActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

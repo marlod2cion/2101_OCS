@@ -163,8 +163,13 @@ public class Lens extends javax.swing.JFrame {
         jLabel4.setText("Thinkness");
 
         LI.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        LI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none", "1.50 (Standard Index)", "1.56 (Mid-Index)", "1.61 (High-Index)", "1.67 (High-Index)", "1.74 (Ultra High-Index)" }));
+        LI.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "none", "1.50 (Standard Index)", "1.56 (Mid-Index)", "1.61 (High-Index)", "1.67 (High-Index)", "1.74 (Ultra High-Index)", "Others" }));
         LI.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LIActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel5.setText("Quantity");
@@ -373,7 +378,7 @@ public class Lens extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 884, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -686,6 +691,25 @@ public class Lens extends javax.swing.JFrame {
         populateHomeTable();
 
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void LIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LIActionPerformed
+        // TODO add your handling code here:
+        String thickness = LI.getSelectedItem().toString();
+        if (thickness.equals("Others")) {
+            String otherthickness = JOptionPane.showInputDialog(null, "Please specify the thickness:");
+            if (otherthickness == null || otherthickness.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must specify the thickness!");
+                return; 
+            }
+
+            thickness = otherthickness.trim(); 
+            
+            int selectedIndex = LI.getSelectedIndex(); 
+            LI.insertItemAt(thickness, selectedIndex); 
+            LI.removeItemAt(selectedIndex + 1); 
+            LI.setSelectedItem(thickness);
+        }
+    }//GEN-LAST:event_LIActionPerformed
     
     private void populateHomeTable() {
         try {

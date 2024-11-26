@@ -148,7 +148,7 @@ public class Appointment extends javax.swing.JFrame {
         jLabel5.setText("Reason");
 
         AR.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        AR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Routine eye exam", "Blurry vision", "Double vision", "Night vision issues", "New glasses or contact lenses", "Eye pain or discomfort", "Red or irritated eyes", "Dry eyes", "Floaters or flashes of light", "Headaches or migraines related to vision" }));
+        AR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Routine eye exam", "Blurry vision", "Double vision", "Night vision issues", "New glasses or contact lenses", "Eye pain or discomfort", "Red or irritated eyes", "Dry eyes", "Floaters or flashes of light", "Headaches or migraines related to vision", "Others" }));
         AR.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -685,7 +685,7 @@ public class Appointment extends javax.swing.JFrame {
                 }
 
                 String date = year + "-" + month + "-" + day;
-                query = "UPDATE `appointments` SET `appointmentDate` = '" + date + "' WHERE `patientID` = '" + patientIDs + "'";
+                query = "UPDATE appointments SET appointmentDate = '" + date + "' WHERE patientID = '" + patientIDs + "'";
                 newValue = "Appointment Date: " + date;
                 break;
 
@@ -695,7 +695,7 @@ public class Appointment extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Time is required!");
                     return;
                 }
-                query = "UPDATE `appointments` SET `appointmentTime` = '" + time + "' WHERE `patientID` = '" + patientIDs + "'";
+                query = "UPDATE appointments SET appointmentTime = '" + time + "' WHERE patientID = '" + patientIDs + "'";
                 newValue = "Time: " + time;
                 break;
 
@@ -705,7 +705,7 @@ public class Appointment extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Reason is required!");
                     return;
                 }
-                query = "UPDATE `appointments` SET `reason` = '" + reason + "' WHERE `patientID` = '" + patientIDs + "'";
+                query = "UPDATE appointments SET reason = '" + reason + "' WHERE patientID = '" + patientIDs + "'";
                 newValue = "Reason: " + reason;
                 break;
 
@@ -715,13 +715,23 @@ public class Appointment extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Status is required!");
                     return;
                 }
-                query = "UPDATE `appointments` SET `status` = '" + status + "' WHERE `patientID` = '" + patientIDs + "'";
+                query = "UPDATE appointments SET status = '" + status + "' WHERE patientID = '" + patientIDs + "'";
                 newValue = "Status: " + status;
                 break;
 
                 default:
                 JOptionPane.showMessageDialog(null, "Invalid selection.");
                 return;
+            }
+
+            // Confirmation dialog before executing the update
+            int confirm = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to update " + choice + " to '" + newValue + "'?",
+                "Confirm Update",
+                JOptionPane.YES_NO_OPTION);
+
+            if (confirm != JOptionPane.YES_OPTION) {
+                return; // Exit if the user cancels the operation
             }
 
             // Execute the update query
@@ -781,33 +791,25 @@ public class Appointment extends javax.swing.JFrame {
         String date = year + "-" + month + "-" + day;
 
         if (patientID.equals("")) {
-         JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
-        } 
-        else if (month.equals("MM")) {
-         JOptionPane.showMessageDialog(null, "MONTH IS REQUIRED!!!");
-        } 
-        else if (day.equals("DD")) {
-         JOptionPane.showMessageDialog(null, "DAY IS REQUIRED!!!");
-        } 
-        else if (year.equals("YY")) {
-         JOptionPane.showMessageDialog(null, "YEAR IS REQUIRED!!!");
-        } 
-        else if (time.equals("None")) {
-         JOptionPane.showMessageDialog(null, "TIME IS REQUIRED!!!");
-        } 
-        else if (reason.equals("None")) {
-         JOptionPane.showMessageDialog(null, "REASON IS REQUIRED!!!");
-        } 
-        else if (status.equals("None")) {
-         JOptionPane.showMessageDialog(null, "STATUS IS REQUIRED!!!");
-        } 
-        
-        else {
+            JOptionPane.showMessageDialog(null, "PATIENT ID IS REQUIRED!!!");
+        } else if (month.equals("MM")) {
+            JOptionPane.showMessageDialog(null, "MONTH IS REQUIRED!!!");
+        } else if (day.equals("DD")) {
+            JOptionPane.showMessageDialog(null, "DAY IS REQUIRED!!!");
+        } else if (year.equals("YY")) {
+            JOptionPane.showMessageDialog(null, "YEAR IS REQUIRED!!!");
+        } else if (time.equals("None")) {
+            JOptionPane.showMessageDialog(null, "TIME IS REQUIRED!!!");
+        } else if (reason.equals("None")) {
+            JOptionPane.showMessageDialog(null, "REASON IS REQUIRED!!!");
+        } else if (status.equals("None")) {
+            JOptionPane.showMessageDialog(null, "STATUS IS REQUIRED!!!");
+        } else {
             try {
                 int patientIDs = Integer.parseInt(patientID);
 
                 // Check if the selected time is already occupied
-                String checkQuery = "SELECT * FROM `appointments` WHERE `appointmentDate` = ? AND `appointmentTime` = ?";
+                String checkQuery = "SELECT * FROM appointments WHERE appointmentDate = ? AND appointmentTime = ?";
                 PreparedStatement checkStmt = kon.prepareStatement(checkQuery);
                 checkStmt.setString(1, date);
                 checkStmt.setString(2, time);
@@ -816,23 +818,43 @@ public class Appointment extends javax.swing.JFrame {
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "The selected time is already occupied. Please choose another time.");
                 } else {
-                    // Insert the new appointment
-                    String query = "INSERT INTO `appointments` (`appointmentID`, `patientID`, `appointmentDate`, `appointmentTime`, `reason`, `status`) VALUES (NULL, ?, ?, ?, ?, ?)";
-                    PreparedStatement insertStmt = kon.prepareStatement(query);
-                    insertStmt.setInt(1, patientIDs);
-                    insertStmt.setString(2, date);
-                    insertStmt.setString(3, time);
-                    insertStmt.setString(4, reason);
-                    insertStmt.setString(5, status);
+                    // Confirm the action before inserting
+                    int confirm = JOptionPane.showConfirmDialog(null, 
+                        "Are you sure you want to add this appointment on " + date + " at " + time + "?", 
+                        "Confirm Appointment", 
+                        JOptionPane.YES_NO_OPTION);
 
-                    insertStmt.executeUpdate();
-                    JOptionPane.showMessageDialog(rootPane, "Record Added");
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        // Insert the new appointment
+                        String query = "INSERT INTO appointments (appointmentID, patientID, appointmentDate, appointmentTime, reason, status) VALUES (NULL, ?, ?, ?, ?, ?)";
+                        PreparedStatement insertStmt = kon.prepareStatement(query);
+                        insertStmt.setInt(1, patientIDs);
+                        insertStmt.setString(2, date);
+                        insertStmt.setString(3, time);
+                        insertStmt.setString(4, reason);
+                        insertStmt.setString(5, status);
+
+                        insertStmt.executeUpdate();
+                        JOptionPane.showMessageDialog(rootPane, "Record Added Successfully!");
+
+                        // Reset fields after successful insertion
+                        AP.setText("");
+                        AM.setSelectedItem("MM");
+                        AD.setSelectedItem("DD");
+                        AY.setSelectedItem("YY");
+                        AR.setSelectedItem("None");
+                        AT.setSelectedItem("None");
+                        AS.setSelectedItem("None");
+                    }
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Failed to add record: " + e.getMessage());
+                e.printStackTrace();  // Optional: for debugging purposes
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid Patient ID: " + e.getMessage());
             }
+            populateHomeTable();
         }
-        populateHomeTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASActionPerformed
@@ -841,6 +863,21 @@ public class Appointment extends javax.swing.JFrame {
 
     private void ARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ARActionPerformed
         // TODO add your handling code here:
+        String reason = AR.getSelectedItem().toString();
+        if (reason.equals("Others")) {
+            String otherreason = JOptionPane.showInputDialog(null, "Please specify the reason:");
+            if (otherreason == null || otherreason.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You must specify the reason!");
+                return; 
+            }
+
+            reason = otherreason.trim(); 
+            
+            int selectedIndex = AR.getSelectedIndex(); 
+            AR.insertItemAt(reason, selectedIndex); 
+            AR.removeItemAt(selectedIndex + 1); 
+            AR.setSelectedItem(reason);
+        }
     }//GEN-LAST:event_ARActionPerformed
 
     private void ATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ATActionPerformed
