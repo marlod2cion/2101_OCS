@@ -301,9 +301,9 @@ public class Lens extends javax.swing.JFrame {
                             .addComponent(LF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(LM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 1, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +394,7 @@ public class Lens extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -415,7 +415,9 @@ public class Lens extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,7 +489,7 @@ public class Lens extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "MATERIAL IS REQUIRED!!!");
                     return;
                 }
-                query = "UPDATE `lens` SET `material` = '" + material + "' WHERE `lensID` = '" + lensID + "'";
+                query = "UPDATE `lens` SET `lensMaterial` = '" + material + "' WHERE `lensID` = '" + lensID + "'";
                 break;
 
                 case "Thickness":
@@ -505,7 +507,7 @@ public class Lens extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "PRICE IS REQUIRED!!!");
                     return;
                 }
-                query = "UPDATE `lens` SET `price` = '" + price + "' WHERE `lensID` = '" + lensID + "'";
+                query = "UPDATE `lens` SET `lensPrice` = '" + price + "' WHERE `lensID` = '" + lensID + "'";
                 break;
 
                 case "Quantity":
@@ -514,7 +516,7 @@ public class Lens extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "QUANTITY IS REQUIRED!!!");
                     return;
                 }
-                query = "UPDATE `lens` SET `quantity` = '" + quantity + "' WHERE `lensID` = '" + lensID + "'";
+                query = "UPDATE `lens` SET `lensQuantity` = '" + quantity + "' WHERE `lensID` = '" + lensID + "'";
                 break;
 
                 case "Feature":
@@ -523,7 +525,7 @@ public class Lens extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "FEATURE IS REQUIRED!!!");
                     return;
                 }
-                query = "UPDATE `lens` SET `feature` = '" + feature + "' WHERE `lensID` = '" + lensID + "'";
+                query = "UPDATE `lens` SET `lensFeature` = '" + feature + "' WHERE `lensID` = '" + lensID + "'";
                 break;
 
                 default:
@@ -558,6 +560,7 @@ public class Lens extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        populateHomeTable();
         String material = LM.getSelectedItem().toString();
         String thickness = LI.getSelectedItem().toString();
         String price = LP.getText();
@@ -655,6 +658,59 @@ public class Lens extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        populateHomeTable();
+        String lensID = JOptionPane.showInputDialog("Enter Lens ID to delete:");
+
+        // Check if Lens ID is provided
+        if (lensID == null || lensID.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "LENS ID IS REQUIRED!!!");
+            return;
+        }
+
+        try {
+            // Check if the Lens ID exists
+            Statement checkState = kon.createStatement();
+            String checkQuery = "SELECT COUNT(*) AS count FROM `lens` WHERE `lensID` = '" + lensID + "'";
+            ResultSet result = checkState.executeQuery(checkQuery);
+
+            if (result.next() && result.getInt("count") == 0) {
+                // Lens ID does not exist
+                JOptionPane.showMessageDialog(null, "Lens ID does not exist!");
+            } else {
+                // Confirm deletion
+                int confirm = JOptionPane.showConfirmDialog(
+                    null,
+                    "Are you sure you want to delete Lens ID: " + lensID + "?",
+                    "Confirm Deletion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE
+                );
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    // Delete the Lens record
+                    Statement deleteState = kon.createStatement();
+                    String deleteQuery = "DELETE FROM `lens` WHERE `lensID` = '" + lensID + "'";
+                    int rowsAffected = deleteState.executeUpdate(deleteQuery);
+
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Lens deleted successfully!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to delete Lens. No matching record found.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Deletion canceled!");
+                }
+            }
+
+            // Clean up
+            result.close();
+            checkState.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Failed to delete record: " + e.getMessage());
+        }
+
+        populateHomeTable();
+
     }//GEN-LAST:event_jButton7ActionPerformed
     
     private void populateHomeTable() {

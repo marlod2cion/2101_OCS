@@ -57,7 +57,6 @@ public class Patient extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -220,7 +219,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 31));
 
         PG.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female", "", "" }));
+        PG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Male", "Female", "Prefer not to say" }));
         PG.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +250,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 90, 30));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 90, 30));
 
         jButton5.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-remove-new.png"))); // NOI18N
@@ -293,7 +292,7 @@ public class Patient extends javax.swing.JFrame {
                 searchFieldActionPerformed(evt);
             }
         });
-        jPanel3.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 220, 30));
+        jPanel3.add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 270, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 559, 460));
 
@@ -314,7 +313,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 200, 60));
+        jPanel9.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 200, 70));
 
         jButton10.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton10.setText("APPOINTMENT");
@@ -324,7 +323,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 60));
+        jPanel9.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 200, 70));
 
         jButton11.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton11.setText("EXAMINATION");
@@ -334,17 +333,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 60));
-
-        jButton12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
-        jButton12.setText("PRESCRIPTION");
-        jButton12.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 200, 60));
+        jPanel9.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 200, 80));
 
         jButton13.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton13.setText("PRODUCTS");
@@ -354,7 +343,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 60));
+        jPanel9.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 80));
 
         jButton14.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
         jButton14.setText("REPORTS");
@@ -364,7 +353,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
+        jPanel9.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 200, 80));
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 200, 480));
 
@@ -673,6 +662,7 @@ public class Patient extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Failed to execute search: " + e.getMessage());
             }
         }
+        searchField.setText("");
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -821,15 +811,6 @@ public class Patient extends javax.swing.JFrame {
         PMH.setSelectedItem("None");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-        Prescription PR = new Prescription();
-        PR.setVisible(true);
-        PR.pack();
-        PR.setLocationRelativeTo(null);
-        dispose();
-    }//GEN-LAST:event_jButton12ActionPerformed
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
         Product PR = new Product();
@@ -976,7 +957,6 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton16;

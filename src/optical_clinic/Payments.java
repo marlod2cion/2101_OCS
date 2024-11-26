@@ -4,13 +4,20 @@
  */
 package optical_clinic;
 
+import database_connector.DBKonek;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 public class Payments extends javax.swing.JFrame {
 
     /**
      * Creates new form Payments
      */
+    private Connection kon;
     public Payments() {
+        DBKonek db = new DBKonek();
+        kon = db.getConnection();
         initComponents();
     }
 
@@ -42,10 +49,10 @@ public class Payments extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
 
@@ -208,6 +215,15 @@ public class Payments extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-new.png"))); // NOI18N
+        jButton8.setText("Receipt");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -223,24 +239,24 @@ public class Payments extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(A, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(PAI)
                             .addComponent(PRI, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PM, javax.swing.GroupLayout.Alignment.TRAILING, 0, 233, Short.MAX_VALUE))
+                            .addComponent(PM, javax.swing.GroupLayout.Alignment.TRAILING, 0, 239, Short.MAX_VALUE))
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton6)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton6)
                         .addGap(40, 40, 40)
                         .addComponent(jButton7)
                         .addGap(19, 19, 19))))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jButton8)
+                .addGap(59, 59, 59)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,8 +283,10 @@ public class Payments extends javax.swing.JFrame {
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
         );
 
         jButton9.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
@@ -295,15 +313,6 @@ public class Payments extends javax.swing.JFrame {
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
-            }
-        });
-
-        jButton12.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
-        jButton12.setText("PRESCRIPTION");
-        jButton12.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
             }
         });
 
@@ -338,7 +347,6 @@ public class Payments extends javax.swing.JFrame {
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
@@ -361,9 +369,7 @@ public class Payments extends javax.swing.JFrame {
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(72, 72, 72)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -442,15 +448,6 @@ public class Payments extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-        Prescription PR = new Prescription();
-        PR.setVisible(true);
-        PR.pack();
-        PR.setLocationRelativeTo(null);
-        dispose();
-    }//GEN-LAST:event_jButton12ActionPerformed
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
         Product PR = new Product();
@@ -486,6 +483,86 @@ public class Payments extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String patientID = JOptionPane.showInputDialog("Enter Patient ID:");
+        if (patientID == null || patientID.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Patient ID is required!");
+            return;
+        }
+
+        try {
+            // SQL query to fetch patient history
+            String query = """
+            SELECT
+            p.patientID,
+            p.patientName,
+            p.patientAge,
+            p.gender,
+            p.contactNumber,
+            p.address,
+            p.insurance,
+            p.medicalHistory,
+            a.appointmentID,
+            a.appointmentDate,
+            a.appointmentTime,
+            a.reason AS appointmentReason,
+            a.status AS appointmentStatus,
+            pay.paymentID,
+            pay.productID,
+            pay.amount AS paymentAmount,
+            pay.paymentMethod
+            FROM
+            Patients p
+            LEFT JOIN
+            Appointments a ON p.patientID = a.patientID
+            LEFT JOIN
+            Payments pay ON p.patientID = pay.patientID
+            WHERE
+            p.patientID = ?
+            ORDER BY
+            a.appointmentDate;
+            """;
+
+            // Prepare and execute the query
+            PreparedStatement stmt = kon.prepareStatement(query);
+            stmt.setString(1, patientID);
+            ResultSet rs = stmt.executeQuery();
+
+            // Create a StringBuilder to display history
+            StringBuilder history = new StringBuilder();
+            history.append("Patient History:\n\n");
+
+            while (rs.next()) {
+                history.append("Patient ID: ").append(rs.getString("patientID")).append("\n");
+                history.append("Name: ").append(rs.getString("patientName")).append("\n");
+                history.append("Age: ").append(rs.getInt("patientAge")).append("\n");
+                history.append("Gender: ").append(rs.getString("gender")).append("\n");
+                history.append("Contact: ").append(rs.getString("contactNumber")).append("\n");
+                history.append("Address: ").append(rs.getString("address")).append("\n");
+
+                history.append("Appointment ID: ").append(rs.getString("appointmentID")).append("\n");
+                history.append("Date: ").append(rs.getDate("appointmentDate")).append("\n");
+                history.append("Reason: ").append(rs.getString("appointmentReason")).append("\n");
+
+                history.append("Payment ID: ").append(rs.getString("paymentID")).append("\n");
+                history.append("Amount: ").append(rs.getBigDecimal("paymentAmount")).append("\n");
+                history.append("Payment Method: ").append(rs.getString("paymentMethod")).append("\n\n");
+            }
+
+            if (history.length() > 0) {
+                JOptionPane.showMessageDialog(null, history.toString());
+            } else {
+                JOptionPane.showMessageDialog(null, "No history found for Patient ID: " + patientID);
+            }
+
+            // Close resources
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error fetching history: " + e.getMessage());
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -530,13 +607,13 @@ public class Payments extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

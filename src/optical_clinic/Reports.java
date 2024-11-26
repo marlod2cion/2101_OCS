@@ -4,6 +4,14 @@
  */
 package optical_clinic;
 
+import database_connector.DBKonek;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author RONEL LANCE MALATA
@@ -13,10 +21,12 @@ public class Reports extends javax.swing.JFrame {
     /**
      * Creates new form Reports
      */
+    private Connection kon;
     public Reports() {
         initComponents();
+        DBKonek db = new DBKonek();
+        kon = db.getConnection();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,13 +105,13 @@ public class Reports extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "PatientIID", "Patient Name", "Appointment Date", "Reason", "Examination Date", "Result", "Payment Amount", "Payment Method"
+                "PatientIID", "Patient Name", "Age", "Appointment Date", "Reason", "Examination Date", "Result", "Payment Amount", "Payment Method"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -168,12 +178,89 @@ public class Reports extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // SQL query to fetch all patient histories
+            String query = """
+                SELECT 
+                    p.patientID,
+                    p.patientName,
+                    p.patientAge,
+                    p.gender,
+                    p.contactNumber,
+                    p.address,
+                    p.insurance,
+                    p.medicalHistory,
+                    a.appointmentID,
+                    a.appointmentDate,
+                    a.appointmentTime,
+                    a.reason AS appointmentReason,
+                    a.status AS appointmentStatus,
+                    e.examinationID,
+                    e.examinationDate,
+                    e.result AS examinationResult,
+                    pay.paymentID,
+                    pay.productID,
+                    pay.amount AS paymentAmount,
+                    pay.paymentMethod
+                FROM 
+                    Patients p
+                LEFT JOIN 
+                    Appointments a ON p.patientID = a.patientID
+                LEFT JOIN 
+                    Examinations e ON a.appointmentID = e.appointmentID
+                LEFT JOIN 
+                    Payments pay ON p.patientID = pay.patientID
+                ORDER BY 
+                    p.patientID, a.appointmentDate, e.examinationDate;
+            """;
+
+            // Execute the query
+            Statement stmt = kon.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            // Create table model
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Patient ID");
+            model.addColumn("Name");
+            model.addColumn("Age");
+            model.addColumn("Appointment Date");
+            model.addColumn("Appointment Reason");
+            model.addColumn("Examination Date");
+            model.addColumn("Examination Result");
+            model.addColumn("Payment Amount");
+            model.addColumn("Payment Method");
+
+            // Populate table model with data
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("patientID"),
+                    rs.getString("patientName"),
+                    rs.getInt("patientAge"),
+                    rs.getDate("appointmentDate"),
+                    rs.getString("appointmentReason"),
+                    rs.getDate("examinationDate"),
+                    rs.getString("examinationResult"),
+                    rs.getBigDecimal("paymentAmount"),
+                    rs.getString("paymentMethod")
+                });
+            }
+
+            // Set the model for JTable1
+            jTable1.setModel(model);
+
+            // Close resources
+            rs.close();
+            stmt.close();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error fetching data: " + e.getMessage());
+        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
-     */
+     */     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

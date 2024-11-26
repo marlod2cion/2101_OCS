@@ -34,8 +34,6 @@ public class Frame extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        FN = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         FP = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -137,23 +135,6 @@ public class Frame extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
-
-        jLabel2.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel2.setText("Frame ID");
-
-        FN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        FN.setText("AUTO FILL");
-        FN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        FN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FNActionPerformed(evt);
-            }
-        });
-        FN.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                FNKeyPressed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
         jLabel3.setText("Price");
@@ -300,22 +281,15 @@ public class Frame extends javax.swing.JFrame {
                                     .addComponent(FS, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 3, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(FN)
-                                .addContainerGap())
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))))
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,11 +301,7 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FP, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,13 +318,14 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FM, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
@@ -430,10 +401,6 @@ public class Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FNActionPerformed
-
     private void FPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FPActionPerformed
@@ -444,7 +411,7 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String name = FN.getText();
+        populateHomeTable();
         String price = FP.getText();
         String quantity = FQ.getText();
         String shape = FS.getSelectedItem().toString();
@@ -486,7 +453,6 @@ public class Frame extends javax.swing.JFrame {
         }
         populateHomeTable();
         // Reset the form fields
-        FN.setText("Auto Fill");
         FP.setText("");
         FQ.setText("");
         FS.setSelectedItem("None");
@@ -521,13 +487,59 @@ public class Frame extends javax.swing.JFrame {
         populateHomeTable();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void FNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FNKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FNKeyPressed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         populateHomeTable();
+        String frameID = JOptionPane.showInputDialog("Enter Frame ID to update:");
+
+        if (frameID == null || frameID.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FRAME ID IS REQUIRED!!!");
+        } else {
+            try {
+                // Prompt user for the quantity
+                String quantityStr = JOptionPane.showInputDialog("Enter the Quantity to update:");
+
+                if (quantityStr == null || quantityStr.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "QUANTITY IS REQUIRED!!!");
+                    return; // Exit the operation
+                }
+
+                // Parse quantity to integer
+                int quantity = Integer.parseInt(quantityStr);
+
+                // Check if the Frame ID exists
+                Statement checkState = kon.createStatement();
+                String checkQuery = "SELECT COUNT(*) AS count FROM `frames` WHERE `frameID` = '" + frameID + "'";
+                ResultSet result = checkState.executeQuery(checkQuery);
+
+                if (result.next() && result.getInt("count") == 0) {
+                    // Frame ID does not exist
+                    JOptionPane.showMessageDialog(null, "Frame ID does not exist!");
+                } else {
+                    // Update the quantity for the given Frame ID
+                    Statement updateState = kon.createStatement();
+                    String updateQuery = "UPDATE `frames` SET `frameQuantity` = '" + quantity + "' WHERE `frameID` = '" + frameID + "'";
+                    updateState.executeUpdate(updateQuery);
+                    JOptionPane.showMessageDialog(null, "Quantity Updated Successfully!");
+                }
+
+                // Clean up
+                result.close();
+                checkState.close();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Invalid quantity! Please enter a valid number.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed to update record: " + e.getMessage());
+            }
+        }
+
+        // Refresh table and reset form fields
+        populateHomeTable();
+        FP.setText("");
+        FQ.setText("");
+        FS.setSelectedItem("None");
+        FM.setSelectedItem("None");
+
         
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -546,7 +558,6 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        FN.setText("AUTO FILL");
         FP.setText("");
         FQ.setText("");
         FS.setSelectedItem("None");
@@ -556,6 +567,53 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        populateHomeTable();
+        String frameID = JOptionPane.showInputDialog("Enter Frame ID to delete:");
+
+        if (frameID == null || frameID.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "FRAME ID IS REQUIRED!!!");
+        } else {
+            try {
+                // Check if the Frame ID exists
+                Statement checkState = kon.createStatement();
+                String checkQuery = "SELECT COUNT(*) AS count FROM `frames` WHERE `frameID` = '" + frameID + "'";
+                ResultSet result = checkState.executeQuery(checkQuery);
+
+                if (result.next() && result.getInt("count") == 0) {
+                    // Frame ID does not exist
+                    JOptionPane.showMessageDialog(null, "Frame ID does not exist!");
+                } else {
+                    // Confirm deletion
+                    int confirm = JOptionPane.showConfirmDialog(
+                        null,
+                        "Are you sure you want to delete Frame ID: " + frameID + "?",
+                        "Confirm Deletion",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE
+                    );
+
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        // Perform deletion
+                        Statement deleteState = kon.createStatement();
+                        String deleteQuery = "DELETE FROM `frames` WHERE `frameID` = '" + frameID + "'";
+                        deleteState.executeUpdate(deleteQuery);
+                        JOptionPane.showMessageDialog(null, "Frame deleted successfully!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Deletion canceled!");
+                    }
+                }
+
+                // Clean up
+                result.close();
+                checkState.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Failed to delete record: " + e.getMessage());
+            }
+        }
+
+        // Refresh table
+        populateHomeTable();
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -648,7 +706,6 @@ public class Frame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> FM;
-    private javax.swing.JTextField FN;
     private javax.swing.JTextField FP;
     private javax.swing.JTextField FQ;
     private javax.swing.JComboBox<String> FS;
@@ -661,7 +718,6 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

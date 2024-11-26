@@ -4,14 +4,26 @@
  */
 package optical_clinic;
 
+import database_connector.DBKonek;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 public class Product extends javax.swing.JFrame {
 
     /**
      * Creates new form Product
      */
+    private Connection kon;
     public Product() {
         initComponents();
+        DBKonek db = new DBKonek();
+        kon = db.getConnection();
     }
 
     /**
@@ -27,8 +39,6 @@ public class Product extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -45,11 +55,16 @@ public class Product extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,7 +77,7 @@ public class Product extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Lucida Calligraphy", 1, 40)); // NOI18N
-        jLabel8.setText("Product List");
+        jLabel8.setText("Product List and Inventory");
 
         jButton5.setBackground(new java.awt.Color(151, 213, 224));
         jButton5.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
@@ -81,7 +96,7 @@ public class Product extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton5)
-                .addGap(397, 397, 397)
+                .addGap(163, 163, 163)
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -89,34 +104,13 @@ public class Product extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton5))
-                .addGap(479, 479, 479))
+                .addComponent(jButton5)
+                .addGap(483, 483, 483))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        jScrollPane1.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
-
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jTable1.setFont(new java.awt.Font("Lucida Fax", 1, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ProductID", "Product Type", "LensID", "FrameID", "SolutionID"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -218,6 +212,16 @@ public class Product extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-new.png"))); // NOI18N
+        jButton8.setText("Logs");
+        jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -226,35 +230,40 @@ public class Product extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(PT, 0, 224, Short.MAX_VALUE)
-                                        .addComponent(LI)
-                                        .addComponent(FI)
-                                        .addComponent(SI))
-                                    .addComponent(S, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(PT, 0, 224, Short.MAX_VALUE)
+                                                .addComponent(LI)
+                                                .addComponent(FI)
+                                                .addComponent(SI))
+                                            .addComponent(S, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -276,7 +285,7 @@ public class Product extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FI, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
@@ -287,7 +296,9 @@ public class Product extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -339,6 +350,37 @@ public class Product extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
+        );
+
+        jScrollPane2.setViewportView(jPanel5);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -355,8 +397,9 @@ public class Product extends javax.swing.JFrame {
                             .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -364,19 +407,22 @@ public class Product extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -389,7 +435,9 @@ public class Product extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -453,25 +501,476 @@ public class Product extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // Refresh the table
+        populateHomeTable();
+
+        // Ask for the Product ID to update
+        String productID = JOptionPane.showInputDialog("Enter the Product ID to update:");
+        if (productID == null || productID.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Product ID is required!");
+            return; // Exit if no product ID is entered
+        }
+
+        int productIDInt = Integer.parseInt(productID); // Convert productID to integer
+
+        // Ask what to update (price, quantity, or both)
+        String[] options = {"Price", "Quantity", "Both"};
+        String choice = (String) JOptionPane.showInputDialog(null, 
+            "What would you like to update?", 
+            "Update Options", 
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            options, 
+            options[0]);
+
+        if (choice == null) {
+            JOptionPane.showMessageDialog(null, "Update canceled.");
+            return; // Exit if no option is chosen
+        }
+
+        try {
+            // Check the product type based on the entered productID
+            String checkProductQuery = """
+                SELECT p.productType, 
+                       p.lensID AS productLensID, 
+                       p.frameID AS productFrameID, 
+                       p.solutionID AS productSolutionID,
+                       COALESCE(l.lensPrice, f.framePrice, s.solutionPrice) AS currentPrice,
+                       COALESCE(l.lensQuantity, f.frameQuantity, s.solutionQuantity) AS currentQuantity
+                FROM Products p
+                LEFT JOIN Lens l ON p.lensID = l.lensID
+                LEFT JOIN Frames f ON p.frameID = f.frameID
+                LEFT JOIN Solutions s ON p.solutionID = s.solutionID
+                WHERE p.productID = ?
+            """;
+
+            PreparedStatement checkStmt = kon.prepareStatement(checkProductQuery);
+            checkStmt.setInt(1, productIDInt);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                String productType = rs.getString("productType");
+
+                // Prepare the update query dynamically
+                String updateQuery = "";
+                boolean updatePrice = choice.equals("Price") || choice.equals("Both");
+                boolean updateQuantity = choice.equals("Quantity") || choice.equals("Both");
+
+                if (productType.equals("Lens")) {
+                    if (updatePrice && updateQuantity) {
+                        updateQuery = "UPDATE Lens SET lensPrice = ?, lensQuantity = ? WHERE lensID = ?";
+                    } else if (updatePrice) {
+                        updateQuery = "UPDATE Lens SET lensPrice = ? WHERE lensID = ?";
+                    } else if (updateQuantity) {
+                        updateQuery = "UPDATE Lens SET lensQuantity = ? WHERE lensID = ?";
+                    }
+                } else if (productType.equals("Frame")) {
+                    if (updatePrice && updateQuantity) {
+                        updateQuery = "UPDATE Frames SET framePrice = ?, frameQuantity = ? WHERE frameID = ?";
+                    } else if (updatePrice) {
+                        updateQuery = "UPDATE Frames SET framePrice = ? WHERE frameID = ?";
+                    } else if (updateQuantity) {
+                        updateQuery = "UPDATE Frames SET frameQuantity = ? WHERE frameID = ?";
+                    }
+                } else if (productType.equals("Solution")) {
+                    if (updatePrice && updateQuantity) {
+                        updateQuery = "UPDATE Solutions SET solutionPrice = ?, solutionQuantity = ? WHERE solutionID = ?";
+                    } else if (updatePrice) {
+                        updateQuery = "UPDATE Solutions SET solutionPrice = ? WHERE solutionID = ?";
+                    } else if (updateQuantity) {
+                        updateQuery = "UPDATE Solutions SET solutionQuantity = ? WHERE solutionID = ?";
+                    }
+                }
+
+                // Prepare and execute the update statement
+                PreparedStatement updateStmt = kon.prepareStatement(updateQuery);
+
+                int paramIndex = 1;
+
+                // Ask for price and/or quantity as needed
+                if (updatePrice) {
+                    String newPriceStr = JOptionPane.showInputDialog("Enter the new price for Product ID " + productIDInt + ":");
+                    if (newPriceStr == null || newPriceStr.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Price is required!");
+                        return; // Exit if no price is entered
+                    }
+                    double newPrice = Double.parseDouble(newPriceStr); // Convert new price to double
+                    updateStmt.setDouble(paramIndex++, newPrice); // Set price parameter
+                }
+
+                if (updateQuantity) {
+                    String newQuantityStr = JOptionPane.showInputDialog("Enter the new quantity for Product ID " + productIDInt + ":");
+                    if (newQuantityStr == null || newQuantityStr.trim().equals("")) {
+                        JOptionPane.showMessageDialog(null, "Quantity is required!");
+                        return; // Exit if no quantity is entered
+                    }
+                    int newQuantity = Integer.parseInt(newQuantityStr); // Convert new quantity to integer
+                    updateStmt.setInt(paramIndex++, newQuantity); // Set quantity parameter
+                }
+
+                // Set the product ID for the WHERE clause
+                if (productType.equals("Lens")) {
+                    updateStmt.setInt(paramIndex, rs.getInt("productLensID"));
+                } else if (productType.equals("Frame")) {
+                    updateStmt.setInt(paramIndex, rs.getInt("productFrameID"));
+                } else if (productType.equals("Solution")) {
+                    updateStmt.setInt(paramIndex, rs.getInt("productSolutionID"));
+                }
+
+                // Execute the update
+                int rowsAffected = updateStmt.executeUpdate();
+                if (rowsAffected > 0) {
+                    // Insert log into Logs table
+                    String modifiedField = updatePrice && updateQuantity ? "Price and Quantity" : (updatePrice ? "Price" : "Quantity");
+                    String insertLogQuery = """
+                            INSERT INTO Logs (productID, modifiedField, oldValue, newValue, modifiedAt) 
+                            VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
+                    """;
+                    PreparedStatement logStmt = kon.prepareStatement(insertLogQuery);
+                    logStmt.setInt(1, productIDInt);
+                    logStmt.setString(2, modifiedField);
+                    logStmt.setString(3, String.valueOf(rs.getDouble("currentPrice")));
+                    logStmt.setString(4, String.valueOf(updatePrice ? rs.getDouble("currentPrice") : rs.getInt("currentQuantity")));
+                    logStmt.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Product updated successfully for Product ID: " + productIDInt);
+                    logStmt.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to update the product.");
+                }
+
+                // Clean up
+                updateStmt.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "Product ID not found.");
+            }
+
+            rs.close();
+            checkStmt.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid number format: " + e.getMessage());
+        }
+
+        // Refresh the table again
+        populateHomeTable();
+
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        populateHomeTable();
+        String productID = JOptionPane.showInputDialog("Enter the Product ID to delete:");
+        if (productID == null || productID.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Product ID is required!");
+            return; // Exit if no Product ID is entered
+        }
 
+        int productIDInt = Integer.parseInt(productID); // Convert Product ID to integer
+
+        try {
+            // Check if the Product ID exists in the Products table
+            String checkProductQuery = "SELECT productType, lensID, frameID, solutionID FROM Products WHERE productID = ?";
+            PreparedStatement checkStmt = kon.prepareStatement(checkProductQuery);
+            checkStmt.setInt(1, productIDInt);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                // Ask for confirmation before deleting
+                int confirmation = JOptionPane.showConfirmDialog(
+                    null,
+                    "Are you sure you want to delete Product ID " + productIDInt + "?",
+                    "Confirm Deletion",
+                    JOptionPane.YES_NO_OPTION
+                );
+
+                if (confirmation == JOptionPane.YES_OPTION) {
+                    // Determine which table to delete from based on the product type
+                    String productType = rs.getString("productType");
+                    String deleteQuery = "";
+
+                    if (productType.equals("Lens")) {
+                        deleteQuery = "DELETE FROM Lens WHERE lensID = ?";
+                    } else if (productType.equals("Frame")) {
+                        deleteQuery = "DELETE FROM Frames WHERE frameID = ?";
+                    } else if (productType.equals("Solution")) {
+                        deleteQuery = "DELETE FROM Solutions WHERE solutionID = ?";
+                    }
+
+                    // Prepare and execute the delete query
+                    PreparedStatement deleteStmt = kon.prepareStatement(deleteQuery);
+
+                    if (productType.equals("Lens")) {
+                        deleteStmt.setInt(1, rs.getInt("lensID"));
+                    } else if (productType.equals("Frame")) {
+                        deleteStmt.setInt(1, rs.getInt("frameID"));
+                    } else if (productType.equals("Solution")) {
+                        deleteStmt.setInt(1, rs.getInt("solutionID"));
+                    }
+
+                    int rowsAffected = deleteStmt.executeUpdate();
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Product ID " + productIDInt + " deleted successfully.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to delete Product ID " + productIDInt + ".");
+                    }
+
+                    // Clean up
+                    deleteStmt.close();
+
+                    // Also delete the record from the Products table
+                    String deleteProductQuery = "DELETE FROM Products WHERE productID = ?";
+                    PreparedStatement deleteProductStmt = kon.prepareStatement(deleteProductQuery);
+                    deleteProductStmt.setInt(1, productIDInt);
+                    deleteProductStmt.executeUpdate();
+                    deleteProductStmt.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Deletion cancelled.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Product ID not found.");
+            }
+
+            // Clean up
+            rs.close();
+            checkStmt.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+
+        populateHomeTable();
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        populateHomeTable();
+        String type = PT.getSelectedItem().toString();
+        String lens = LI.getText();
+        String frame = FI.getText();
+        String solution = SI.getText();
+
+        // Parse the IDs into integers
+        int lensID = 0;
+        int frameID = 0;
+        int solutionID = 0;
+
+        boolean valid = true;
+
+        // Check if the required fields are entered based on the product type
+        if(type.equals("Lens")) {
+            if(lens.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Lens ID first");
+                valid = false;
+            } else {
+                lensID = Integer.parseInt(lens);
+            }
+        } else if(type.equals("Frame")) {
+            if(frame.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Frame ID first");
+                valid = false;
+            } else {
+                frameID = Integer.parseInt(frame);
+            }
+        } else if(type.equals("Solution")) {
+            if(solution.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Solution ID first");
+                valid = false;
+            } else {
+                solutionID = Integer.parseInt(solution);
+            }
+        }
+
+        if(valid) {
+            try {
+                // Check if the product ID already exists in the Products table based on product type
+                String checkQuery = "SELECT COUNT(*) AS count FROM Products WHERE ";
+
+                if(type.equals("Lens")) {
+                    checkQuery += "lensID = ?";
+                } else if(type.equals("Frame")) {
+                    checkQuery += "frameID = ?";
+                } else if(type.equals("Solution")) {
+                    checkQuery += "solutionID = ?";
+                }
+
+                // Prepare the check query statement
+                PreparedStatement checkStmt = kon.prepareStatement(checkQuery);
+
+                if(type.equals("Lens")) {
+                    checkStmt.setInt(1, lensID);
+                } else if(type.equals("Frame")) {
+                    checkStmt.setInt(1, frameID);
+                } else if(type.equals("Solution")) {
+                    checkStmt.setInt(1, solutionID);
+                }
+
+                ResultSet rs = checkStmt.executeQuery();
+
+                if(rs.next() && rs.getInt("count") > 0) {
+                    // ID already exists
+                    JOptionPane.showMessageDialog(null, type + " ID already exists in the Products table.");
+                } else {
+                    // Insert the new product record
+                    String query = "INSERT INTO Products (productType, lensID, frameID, solutionID) VALUES (?, ?, ?, ?)";
+
+                    PreparedStatement stmt = kon.prepareStatement(query);
+
+                    stmt.setString(1, type);
+
+                    if(type.equals("Lens")) {
+                        stmt.setInt(2, lensID);
+                        stmt.setNull(3, java.sql.Types.INTEGER); // No frameID for lens
+                        stmt.setNull(4, java.sql.Types.INTEGER); // No solutionID for lens
+                    } else if(type.equals("Frame")) {
+                        stmt.setNull(2, java.sql.Types.INTEGER); // No lensID for frame
+                        stmt.setInt(3, frameID);
+                        stmt.setNull(4, java.sql.Types.INTEGER); // No solutionID for frame
+                    } else if(type.equals("Solution")) {
+                        stmt.setNull(2, java.sql.Types.INTEGER); // No lensID for solution
+                        stmt.setNull(3, java.sql.Types.INTEGER); // No frameID for solution
+                        stmt.setInt(4, solutionID);
+                    }
+
+                    // Execute the insertion
+                    int rowsAffected = stmt.executeUpdate();
+
+                    if(rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Successfully Added");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to Add Product");
+                    }
+                }
+                rs.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            }
+        }
+        populateHomeTable();
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-
+        populateHomeTable();
+ 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+         // TODO add your handling code here:
+         loadLogs();
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+                                       
+    
+    private void populateHomeTable() {
+        try {
+            // Updated query to include new columns
+            String query = """
+                           SELECT 
+                               p.productID,
+                               p.productType,
+                               COALESCE(l.lensID, f.frameID, s.solutionID) AS productDetailID,
+                               COALESCE(l.lensMaterial, f.frameMaterial, s.solutionName) AS productDetailName,
+                               COALESCE(l.lensFeature, f.shape, s.solutionType) AS additionalDetail, -- New detail
+                               COALESCE(l.lensPrice, f.framePrice, s.solutionPrice) AS productPrice,
+                               COALESCE(l.lensQuantity, f.frameQuantity, s.solutionQuantity) AS productQuantity,
+                               s.expireDate AS solutionExpirationDate, -- New detail
+                               CASE 
+                                   WHEN l.lensID IS NOT NULL THEN 'Lens'
+                                   WHEN f.frameID IS NOT NULL THEN 'Frame'
+                                   WHEN s.solutionID IS NOT NULL THEN 'Solution'
+                               END AS productCategory
+                           FROM 
+                               Products p
+                           LEFT JOIN 
+                               Lens l ON p.lensID = l.lensID
+                           LEFT JOIN 
+                               Frames f ON p.frameID = f.frameID
+                           LEFT JOIN 
+                               Solutions s ON p.solutionID = s.solutionID
+                           """;
+
+            Statement state = kon.createStatement();
+            ResultSet rs = state.executeQuery(query);
+
+            // Create table model
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Product ID");
+            model.addColumn("Product Type");
+            model.addColumn("Product Detail ID");
+            model.addColumn("Product Detail Name");
+            model.addColumn("Additional Detail"); // Shape, Feature, or Solution Type
+            model.addColumn("Product Price");
+            model.addColumn("Product Quantity");
+            model.addColumn("Solution Expiration Date"); // New column
+            model.addColumn("Product Category");
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("productID"),                 // Product ID
+                    rs.getString("productType"),               // Product Type
+                    rs.getString("productDetailID"),           // Detail ID (Lens ID, Frame ID, or Solution ID)
+                    rs.getString("productDetailName"),         // Detail Name (Material or Solution Name)
+                    rs.getString("additionalDetail"),          // Shape, Feature, or Solution Type
+                    rs.getDouble("productPrice"),              // Price (Lens, Frame, or Solution Price)
+                    rs.getInt("productQuantity"),              // Quantity (Lens, Frame, or Solution Quantity)
+                    rs.getDate("solutionExpirationDate"),      // Expiration Date (for solutions)
+                    rs.getString("productCategory")            // Product Category
+                });
+            }
+            jTable1.setModel(model);
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(rootPane, "Error loading data: " + e.getMessage());
+        }
+
+    }
+    private void loadLogs() {
+        // Create the column names for the log table
+        String[] columnNames = {"Log ID", "Product ID", "Modified Field", "Old Value", "New Value", "Modified At"};
+
+        // Create a DefaultTableModel with the column names
+        DefaultTableModel tableModel = new DefaultTableModel(null, columnNames);
+
+        try {
+            // Create the SQL query to get logs from the database
+            String query = "SELECT logID, productID, modifiedField, oldValue, newValue, modifiedAt FROM Logs";
+
+            // Prepare the statement and execute the query
+            PreparedStatement stmt = kon.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            // Loop through the result set and add data to the table model
+            while (rs.next()) {
+                Object[] row = new Object[6];
+                row[0] = rs.getInt("logID");
+                row[1] = rs.getInt("productID");
+                row[2] = rs.getString("modifiedField");
+                row[3] = rs.getString("oldValue");
+                row[4] = rs.getString("newValue");
+                row[5] = rs.getTimestamp("modifiedAt");
+
+                // Add the row to the table model
+                tableModel.addRow(row);
+            }
+
+            // Set the table model to your JTable
+            jTable1.setModel(tableModel);
+
+            // Close resources
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error loading logs: " + e.getMessage());
+        }
+    }
+
+
+    
     /**
      * @param args the command line arguments
      */
@@ -523,6 +1022,7 @@ public class Product extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -533,7 +1033,9 @@ public class Product extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
