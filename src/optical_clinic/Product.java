@@ -872,37 +872,57 @@ public class Product extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        String searchProductKeyword = S.getText().trim();
+
+        if (searchProductKeyword.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "PRODUCT NAME OR CATEGORY IS REQUIRED FOR SEARCH!");
+        } else {
+            try {
+                // SQL query to search by product name or category
+                String query = "SELECT * FROM ProductView WHERE productDetailName COLLATE utf8mb4_unicode_ci LIKE ? OR productCategory COLLATE utf8mb4_unicode_ci LIKE ?";
+                PreparedStatement preparedStatement = kon.prepareStatement(query);
+                preparedStatement.setString(1, "%" + searchProductKeyword + "%");
+                preparedStatement.setString(2, "%" + searchProductKeyword + "%");
+
+
+                ResultSet rs = preparedStatement.executeQuery();
+
+                StringBuilder results = new StringBuilder();
+
+                // Process the search results
+                while (rs.next()) {
+                    String productID = rs.getString("productID");
+                    String productName = rs.getString("productDetailName");
+                    String productCategory = rs.getString("productCategory");
+                    String productPrice = rs.getString("productPrice");
+                    String productQuantity = rs.getString("productQuantity");
+
+                    results.append("Product ID: ").append(productID).append("  |  ");
+                    results.append("Product Name: ").append(productName).append("  |  ");
+                    results.append("Category: ").append(productCategory).append("  |  ");
+                    results.append("Price: ").append(productPrice).append("  |  ");
+                    results.append("Quantity: ").append(productQuantity).append("     \n");
+                }
+
+                // Show the results or a message if no products were found
+                if (results.length() > 0) {
+                    JOptionPane.showMessageDialog(null, "Search Results:\n\n" + results.toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No products found for: " + searchProductKeyword);
+                }
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Failed to fetch product record: " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
                                        
     
     private void populateHomeTable() {
         try {
             // Updated query to include new columns
-            String query = """
-                           SELECT 
-                               p.productID,
-                               p.productType,
-                               COALESCE(l.lensID, f.frameID, s.solutionID) AS productDetailID,
-                               COALESCE(l.lensMaterial, f.frameMaterial, s.solutionName) AS productDetailName,
-                               COALESCE(l.lensFeature, f.shape, s.solutionType) AS additionalDetail, -- New detail
-                               COALESCE(l.lensPrice, f.framePrice, s.solutionPrice) AS productPrice,
-                               COALESCE(l.lensQuantity, f.frameQuantity, s.solutionQuantity) AS productQuantity,
-                               s.expireDate AS solutionExpirationDate, -- New detail
-                               CASE 
-                                   WHEN l.lensID IS NOT NULL THEN 'Lens'
-                                   WHEN f.frameID IS NOT NULL THEN 'Frame'
-                                   WHEN s.solutionID IS NOT NULL THEN 'Solution'
-                               END AS productCategory
-                           FROM 
-                               Products p
-                           LEFT JOIN 
-                               Lens l ON p.lensID = l.lensID
-                           LEFT JOIN 
-                               Frames f ON p.frameID = f.frameID
-                           LEFT JOIN 
-                               Solutions s ON p.solutionID = s.solutionID
-                           """;
-
+            String query = "SELECT * FROM ProductView";
             Statement state = kon.createStatement();
             ResultSet rs = state.executeQuery(query);
 

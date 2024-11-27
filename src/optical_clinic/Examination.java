@@ -566,6 +566,8 @@ public class Examination extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        populateHomeTable();
         String appointment = EA.getText().toString();
         String left = EL.getSelectedItem().toString();
         String right = ER.getSelectedItem().toString();
@@ -622,6 +624,7 @@ public class Examination extends javax.swing.JFrame {
                 }
             }
         }
+        populateHomeTable();
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -679,6 +682,7 @@ public class Examination extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        populateHomeTable();
         String appointmentID = EA.getText().trim(); 
 
  
@@ -766,7 +770,7 @@ public class Examination extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Failed to update record: " + e.getMessage());
         }
-
+            populateHomeTable();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

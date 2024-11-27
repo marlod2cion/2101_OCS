@@ -741,7 +741,8 @@ public class Patient extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       String name = PN.getText().toString();
+      // TODO add your handling code here:
+        String name = PN.getText().toString();
         String age = PAG.getText().toString();
         String gender = PG.getSelectedItem().toString();
         String contactnumber = PC.getText().toString();
@@ -764,10 +765,10 @@ public class Patient extends javax.swing.JFrame {
         else if(address.equals("")){
             JOptionPane.showMessageDialog(null, "ADDRESS IS REQUIRED!!!");
         }
-        else if(insurance.equals("None")){
+        else if(insurance.equals("")){
             JOptionPane.showMessageDialog(null, "INSURANCE IS REQUIRED!!!");
         }
-        else if(medicalhistory.equals("None")){
+        else if(medicalhistory.equals("")){
             JOptionPane.showMessageDialog(null, "MEDICAL HISTORY IS REQUIRED!!!");
         }
         else{
@@ -789,7 +790,14 @@ public class Patient extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane, "Patient record updated.");
                     } else {
                         JOptionPane.showMessageDialog(null, "No changes were made.");
-                    }
+                    }                   
+                    PN.setText("");
+                    PAG.setText("");
+                    PG.setSelectedItem("None");
+                    PC.setText("");
+                    PA.setText("");
+                    PI.setSelectedItem("None");
+                    PMH.setSelectedItem("None");
                 } else {
                     // Insert new patient record
                     String insertQuery = "INSERT INTO patients (patientID, patientName, patientAge, gender, contactNumber, address, insurance, medicalHistory) VALUES (NULL, '"+name+"', '"+age+"', '"+gender+"', '"+contactnumber+"', '"+address+"', '"+insurance+"', '"+medicalhistory+"')";
@@ -801,14 +809,6 @@ public class Patient extends javax.swing.JFrame {
             }
         }
         populateHomeTable();
-
-        PN.setText("");
-        PAG.setText("");
-        PG.setSelectedItem("None");
-        PC.setText("");
-        PA.setText("");
-        PI.setSelectedItem("None");
-        PMH.setSelectedItem("None");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
