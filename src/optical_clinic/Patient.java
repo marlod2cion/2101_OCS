@@ -51,7 +51,6 @@ public class Patient extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -150,7 +149,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 100, 40));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 100, 40));
 
         PN.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         PN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -262,7 +261,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 90, 40));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 90, 40));
 
         jButton6.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-new.png"))); // NOI18N
@@ -273,18 +272,7 @@ public class Patient extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 90, 40));
-
-        jButton4.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-new.png"))); // NOI18N
-        jButton4.setText("View");
-        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, 90, 40));
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 90, 40));
 
         searchField.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
         searchField.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -363,6 +351,63 @@ public class Patient extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
@@ -385,7 +430,7 @@ public class Patient extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -833,11 +878,6 @@ public class Patient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        populateHomeTable();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void PMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PMHActionPerformed
         // TODO add your handling code here:
         String medicalhistory = PMH.getSelectedItem().toString();
@@ -856,7 +896,7 @@ public class Patient extends javax.swing.JFrame {
             PMH.setSelectedItem(medicalhistory); 
         }
     }//GEN-LAST:event_PMHActionPerformed
-    public void populateHomeTable() {
+    private void populateHomeTable() {
         try {
             String query = "SELECT * FROM `patients`";
             Statement state = kon.createStatement();
@@ -873,37 +913,88 @@ public class Patient extends javax.swing.JFrame {
             model.addColumn("Insurance");
             model.addColumn("Medical History");
 
+            int rowCount = 0;  // To count the rows added
+
             while (rs.next()) {
+                // Handling possible null values
+                String patientName = rs.getString("patientName");
+                if (patientName == null) {
+                    patientName = "N/A";  // Default value if null
+                }
+
+                String patientAge = rs.getString("patientAge");
+                if (patientAge == null) {
+                    patientAge = "Unknown";  // Default value if null
+                }
+
+                String gender = rs.getString("gender");
+                if (gender == null) {
+                    gender = "Not Specified";  // Default value if null
+                }
+
+                String contactNumber = rs.getString("contactNumber");
+                if (contactNumber == null) {
+                    contactNumber = "N/A";  // Default value if null
+                }
+
+                String address = rs.getString("address");
+                if (address == null) {
+                    address = "Not Available";  // Default value if null
+                }
+
+                String insurance = rs.getString("insurance");
+                if (insurance == null) {
+                    insurance = "Not Provided";  // Default value if null
+                }
+
+                String medicalHistory = rs.getString("medicalHistory");
+                if (medicalHistory == null) {
+                    medicalHistory = "No Data";  // Default value if null
+                }
+
+                // Add row to the table model
                 model.addRow(new Object[]{
                     rs.getInt("patientID"),
-                    rs.getString("patientName"),
-                    rs.getString("patientAge"),
-                    rs.getString("gender"),
-                    rs.getString("contactNumber"),
-                    rs.getString("address"),
-                    rs.getString("insurance"),
-                    rs.getString("medicalHistory")
+                    patientName,
+                    patientAge,
+                    gender,
+                    contactNumber,
+                    address,
+                    insurance,
+                    medicalHistory
                 });
+                rowCount++;
             }
+
+            // Add a row at the bottom to show the total row count
+            model.addRow(new Object[]{
+                "Total Rows:",
+                rowCount, "", "", "", "", "", ""
+            });
+
+            // Set model to the table
             jTable1.setModel(model);
 
+            // Customize column widths
             TableColumnModel columnModel = jTable1.getColumnModel();
-
             columnModel.getColumn(0).setPreferredWidth(80);  // Patient ID
             columnModel.getColumn(1).setPreferredWidth(200); // Name
             columnModel.getColumn(2).setPreferredWidth(50);  // Age
             columnModel.getColumn(3).setPreferredWidth(70);  // Gender
             columnModel.getColumn(4).setPreferredWidth(180); // Contact
-            columnModel.getColumn(5).setPreferredWidth(220); // Address
+            columnModel.getColumn(5).setPreferredWidth(300); // Address
             columnModel.getColumn(6).setPreferredWidth(250); // Insurance
             columnModel.getColumn(7).setPreferredWidth(250); // Medical History
-        } 
-        catch (SQLException e) {
+
+            // Refresh table display
+            jTable1.revalidate();
+            jTable1.repaint();
+
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Error loading data: " + e.getMessage());
         }
     }
 
-    
     /**
      * @param args the command line arguments
      */
@@ -970,7 +1061,6 @@ public class Patient extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;

@@ -197,9 +197,9 @@ public class Reports extends javax.swing.JFrame {
                     a.status AS appointmentStatus,
                     e.examinationID,
                     e.result AS examinationResult,
-                    pay.paymentID,
-                    pay.productID,
-                    pay.amount AS paymentAmount,
+                    pay.receiptID,
+                    pay.patientID,
+                    pay.totalAmount AS paymentAmount,
                     pay.paymentMethod
                 FROM 
                     Patients p
@@ -208,7 +208,7 @@ public class Reports extends javax.swing.JFrame {
                 LEFT JOIN 
                     Examinations e ON a.appointmentID = e.appointmentID
                 LEFT JOIN 
-                    Payments pay ON p.patientID = pay.patientID
+                    Receipt pay ON p.patientID = pay.patientID
                 ORDER BY 
                     p.patientID, a.appointmentDate;
             """;

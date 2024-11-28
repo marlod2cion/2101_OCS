@@ -157,10 +157,10 @@ public class Appointment extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
-        jLabel6.setText("Status");
+        jLabel6.setText("Dr. Name");
 
         AS.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        AS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Scheduled", "Completed" }));
+        AS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Dr. Smith", "Dr. Johnson" }));
         AS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -841,10 +841,6 @@ public class Appointment extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void ASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ASActionPerformed
-
     private void ARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ARActionPerformed
         // TODO add your handling code here:
         String insurance = AR.getSelectedItem().toString();
@@ -884,6 +880,10 @@ public class Appointment extends javax.swing.JFrame {
         HP.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void ASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ASActionPerformed
 
     
     private void populateHomeTable() {

@@ -514,7 +514,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Bright" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Status"/>
+                <Property name="text" type="java.lang.String" value="Dr. Name"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="AS">
@@ -525,8 +525,8 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
                     <StringItem index="0" value="None"/>
-                    <StringItem index="1" value="Scheduled"/>
-                    <StringItem index="2" value="Completed"/>
+                    <StringItem index="1" value="Dr. Smith"/>
+                    <StringItem index="2" value="Dr. Johnson"/>
                   </StringArray>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

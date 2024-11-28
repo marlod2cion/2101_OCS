@@ -91,9 +91,9 @@ public class Payments extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton5)
-                .addGap(326, 326, 326)
+                .addGap(198, 198, 198)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(428, Short.MAX_VALUE))
+                .addContainerGap(556, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,15 +166,11 @@ public class Payments extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 59, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanel3);
@@ -277,7 +273,7 @@ public class Payments extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                 .addGap(19, 19, 19))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +350,7 @@ public class Payments extends javax.swing.JFrame {
                             .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -383,7 +379,7 @@ public class Payments extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -396,7 +392,7 @@ public class Payments extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -728,57 +724,59 @@ public class Payments extends javax.swing.JFrame {
         }
     }
     
-    public void viewReceiptInTablepo() {
-        // Step 1: Define the SQL query to retrieve all receipt details
-        String viewAllReceiptsQuery = "SELECT patientID, paymentMethod, totalAmount, givenAmount, changeAmount FROM receipt";
+ public void viewReceiptInTablepo() {
+    // Step 1: Define the SQL query to retrieve all receipt details
+    String viewAllReceiptsQuery = "SELECT patientID, paymentMethod, totalAmount, givenAmount, changeAmount FROM receipt";
 
-        PreparedStatement viewStmt = null;
-        ResultSet resultSet = null;
+    PreparedStatement viewStmt = null;
+    ResultSet resultSet = null;
 
+    try {
+        // Step 2: Prepare and execute the query
+        viewStmt = kon.prepareStatement(viewAllReceiptsQuery);
+        resultSet = viewStmt.executeQuery();
+
+        // Step 3: Create a table model for displaying data
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Patient ID");
+        model.addColumn("Payment Method");
+        model.addColumn("Total Amount");
+        model.addColumn("Given Amount");
+        model.addColumn("Change Amount");
+
+        // Step 4: Populate the model with data from the resultSet
+        while (resultSet.next()) {
+            Object[] row = new Object[5];
+            row[0] = resultSet.getInt("patientID");       // Patient ID
+            row[1] = resultSet.getString("paymentMethod"); // Payment Method
+            row[2] = resultSet.getDouble("totalAmount");   // Total Amount
+            row[3] = resultSet.getDouble("givenAmount");   // Given Amount
+            row[4] = resultSet.getDouble("changeAmount");  // Change Amount
+            model.addRow(row); // Add row to the model
+        }
+
+        // Step 5: Check and update the JTable
+        if (model.getRowCount() > 0) {
+            jTable1.setModel(model); // Update JTable with the data
+        } else {
+            JOptionPane.showMessageDialog(null, "No receipts found.", "Information", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    } catch (SQLException e) {
+        // Step 6: Handle SQL errors
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error viewing receipts: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    } finally {
+        // Step 7: Close resources
         try {
-            // Step 2: Prepare and execute the query
-            viewStmt = kon.prepareStatement(viewAllReceiptsQuery);
-            resultSet = viewStmt.executeQuery();
-
-            // Step 3: Create a table model for displaying data
-            DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("Patient ID");
-            model.addColumn("Payment Method");
-            model.addColumn("Total Amount");
-            model.addColumn("Given Amount");
-            model.addColumn("Change Amount");
-
-            // Step 4: Populate the model with data from the resultSet
-            while (resultSet.next()) {
-                Object[] row = new Object[5];
-                row[0] = resultSet.getInt("patientID");       // Patient ID
-                row[1] = resultSet.getString("paymentMethod"); // Payment Method
-                row[2] = resultSet.getDouble("totalAmount");   // Total Amount
-                row[3] = resultSet.getDouble("givenAmount");   // Given Amount
-                row[4] = resultSet.getDouble("changeAmount");  // Change Amount
-                model.addRow(row); // Add row to the model
-            }
-
-            // Step 5: Set the model to the JTable (assuming jTable1 is your JTable instance)
-            if (model.getRowCount() > 0) {
-                jTable1.setModel(model); // Update JTable with the data
-            } else {
-                JOptionPane.showMessageDialog(null, "No receipts found.", "Information", JOptionPane.INFORMATION_MESSAGE);
-            }
-
+            if (resultSet != null) resultSet.close();
+            if (viewStmt != null) viewStmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error viewing receipts: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            // Step 6: Close resources
-            try {
-                if (resultSet != null) resultSet.close();
-                if (viewStmt != null) viewStmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
     }
+}
+
 
    
     /**

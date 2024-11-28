@@ -179,6 +179,11 @@ public class Examination extends javax.swing.JFrame {
 
         EL.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         EL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "20/20", "20/30", "20/40", "20/50", "20/60", "20/70", "20/80", "20/100", "20/200" }));
+        EL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ELActionPerformed(evt);
+            }
+        });
 
         ER.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
         ER.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "20/20", "20/40", "20/50", "20/60", "20/70", "20/80", "20/150", "20/250", " " }));
@@ -800,9 +805,47 @@ public class Examination extends javax.swing.JFrame {
         } else if (left.equals("20/40") && right.equals("20/60")) {
             ERT.setSelectedItem("Macular Degeneration (Early)");
         } else {
-            ERT.setSelectedItem("None"); // Default value if no match is found
+            ERT.setSelectedItem(""); // Default value if no match is found
         }
     }//GEN-LAST:event_ERActionPerformed
+
+    private void ELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELActionPerformed
+        // TODO add your handling code here:
+        String left = EL.getSelectedItem().toString(); // Left Eye value
+        String right = ER.getSelectedItem().toString(); // Right Eye value
+
+        if (left.equals("20/20") && right.equals("20/20")) {
+            ERT.setSelectedItem("Normal Vision (20/20)");
+        } else if (left.equals("20/40") && right.equals("20/50")) {
+            ERT.setSelectedItem("Mild Myopia (Nearsightedness)");
+        } else if (left.equals("20/70") && right.equals("20/80")) {
+            ERT.setSelectedItem("Moderate Myopia (Nearsightedness)");
+        } else if (left.equals("20/200") && right.equals("20/250")) {
+            ERT.setSelectedItem("Severe Myopia (Nearsightedness)");
+        } else if (left.equals("20/30") && right.equals("20/40")) {
+            ERT.setSelectedItem("Mild Hyperopia (Farsightedness)");
+        } else if (left.equals("20/60") && right.equals("20/70")) {
+            ERT.setSelectedItem("Moderate Hyperopia (Farsightedness)");
+        } else if (left.equals("20/100") && right.equals("20/150")) {
+            ERT.setSelectedItem("Severe Hyperopia (Farsightedness)");
+        } else if (left.equals("20/30") && right.equals("20/40")) {
+            ERT.setSelectedItem("Astigmatism (Mild)");
+        } else if (left.equals("20/60") && right.equals("20/70")) {
+            ERT.setSelectedItem("Astigmatism (Moderate)");
+        } else if (left.equals("20/30") && right.equals("20/40")) {
+            ERT.setSelectedItem("Presbyopia (Age-related farsightedness)");
+        } else if (left.equals("20/50") && right.equals("20/60")) {
+            ERT.setSelectedItem("Cataracts (Early Stage)");
+        } else if (left.equals("20/80") && right.equals("20/100")) {
+            ERT.setSelectedItem("Cataracts (Moderate Stage)");
+        } else if (left.equals("20/40") && right.equals("20/50")) {
+            ERT.setSelectedItem("Glaucoma (Early Stage)");
+        } else if (left.equals("20/40") && right.equals("20/60")) {
+            ERT.setSelectedItem("Macular Degeneration (Early)");
+        } else {
+            ERT.setSelectedItem(""); // Default value if no match is found
+        }
+    }//GEN-LAST:event_ELActionPerformed
 
     /**
      * @param args the command line arguments
