@@ -26,7 +26,6 @@ public class DBKonek {
         kon = null;
         try {
             kon = DriverManager.getConnection(url, userName, userPassword );
-            JOptionPane.showMessageDialog(null, "Connected Successfully");
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Connected Unsuccesfull");

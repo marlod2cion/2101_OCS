@@ -196,7 +196,6 @@ public class Reports extends javax.swing.JFrame {
                     a.reason AS appointmentReason,
                     a.status AS appointmentStatus,
                     e.examinationID,
-                    e.examinationDate,
                     e.result AS examinationResult,
                     pay.paymentID,
                     pay.productID,
@@ -211,7 +210,7 @@ public class Reports extends javax.swing.JFrame {
                 LEFT JOIN 
                     Payments pay ON p.patientID = pay.patientID
                 ORDER BY 
-                    p.patientID, a.appointmentDate, e.examinationDate;
+                    p.patientID, a.appointmentDate;
             """;
 
             // Execute the query
@@ -225,7 +224,6 @@ public class Reports extends javax.swing.JFrame {
             model.addColumn("Age");
             model.addColumn("Appointment Date");
             model.addColumn("Appointment Reason");
-            model.addColumn("Examination Date");
             model.addColumn("Examination Result");
             model.addColumn("Payment Amount");
             model.addColumn("Payment Method");
@@ -238,7 +236,6 @@ public class Reports extends javax.swing.JFrame {
                     rs.getInt("patientAge"),
                     rs.getDate("appointmentDate"),
                     rs.getString("appointmentReason"),
-                    rs.getDate("examinationDate"),
                     rs.getString("examinationResult"),
                     rs.getBigDecimal("paymentAmount"),
                     rs.getString("paymentMethod")

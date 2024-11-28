@@ -5,10 +5,13 @@
 package optical_clinic;
 
 import database_connector.DBKonek;
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class Payments extends javax.swing.JFrame {
 
     /**
@@ -19,6 +22,7 @@ public class Payments extends javax.swing.JFrame {
         DBKonek db = new DBKonek();
         kon = db.getConnection();
         initComponents();
+        viewReceiptInTable();
     }
 
     /**
@@ -34,20 +38,6 @@ public class Payments extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        PRI = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        PAI = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        PM = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        A = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -57,6 +47,20 @@ public class Payments extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        PM2 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        A3 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        A4 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        A5 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        A11 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,175 +102,6 @@ public class Payments extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5)))
-        );
-
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel5.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Lucida Bright", 1, 20)); // NOI18N
-        jLabel3.setText("ProductID");
-
-        PRI.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PRI.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        PRI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PRIActionPerformed(evt);
-            }
-        });
-        PRI.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                PRIKeyTyped(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Lucida Bright", 1, 20)); // NOI18N
-        jLabel4.setText("PatientID");
-
-        PAI.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PAI.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        PAI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PAIActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Lucida Bright", 1, 20)); // NOI18N
-        jLabel5.setText("Payment ");
-
-        PM.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Cash", "Credit/Debit Card", "GCash", "Online Banking" }));
-        PM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        PM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PMActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Lucida Bright", 1, 20)); // NOI18N
-        jLabel7.setText("Amount");
-
-        A.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        A.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        A.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AActionPerformed(evt);
-            }
-        });
-
-        jButton6.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-update-new.png"))); // NOI18N
-        jButton6.setText("Update");
-        jButton6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton7.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-remove-new.png"))); // NOI18N
-        jButton7.setText("Delete");
-        jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-submit-new.png"))); // NOI18N
-        jButton1.setText("Submit");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-view-new.png"))); // NOI18N
-        jButton4.setText("View");
-        jButton4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-receipt-29.png"))); // NOI18N
-        jButton8.setText("Receipt");
-        jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel5)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(A, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PAI)
-                            .addComponent(PRI, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PM, javax.swing.GroupLayout.Alignment.TRAILING, 0, 239, Short.MAX_VALUE))
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PRI, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(PAI, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(PM, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(63, 63, 63))
         );
 
         jButton9.setFont(new java.awt.Font("Perpetua Titling MT", 1, 12)); // NOI18N
@@ -322,7 +157,7 @@ public class Payments extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "", "", "", ""
             }
         ));
         jScrollPane3.setViewportView(jTable1);
@@ -333,16 +168,176 @@ public class Payments extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 59, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel3);
+
+        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel8.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Lucida Bright", 1, 10)); // NOI18N
+        jLabel15.setText("Payment ");
+
+        PM2.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
+        PM2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Cash", "Credit/Debit Card", "GCash", "Online Banking" }));
+        PM2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PM2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PM2ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Lucida Bright", 1, 10)); // NOI18N
+        jLabel17.setText("Total Amount");
+
+        A3.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
+        A3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        A3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A3ActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Lucida Bright", 1, 10)); // NOI18N
+        jLabel18.setText("Amount Given");
+
+        A4.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
+        A4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        A4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A4ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Lucida Bright", 1, 10)); // NOI18N
+        jLabel19.setText("Change");
+
+        A5.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
+        A5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        A5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A5ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Monospaced", 1, 10)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-submit-new.png"))); // NOI18N
+        jButton3.setText("Submit");
+        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton21.setFont(new java.awt.Font("Monospaced", 1, 10)); // NOI18N
+        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-remove-new.png"))); // NOI18N
+        jButton21.setText("Delete");
+        jButton21.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
+        jButton23.setFont(new java.awt.Font("Monospaced", 1, 10)); // NOI18N
+        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8-receipt-29.png"))); // NOI18N
+        jButton23.setText("View Receipt");
+        jButton23.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
+        A11.setFont(new java.awt.Font("Lucida Sans", 1, 10)); // NOI18N
+        A11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        A11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A11ActionPerformed(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("Lucida Bright", 1, 10)); // NOI18N
+        jLabel24.setText("PatientID");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel24))
+                                .addGap(34, 34, 34)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(A11)
+                                    .addComponent(PM2, 0, 207, Short.MAX_VALUE)))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel19))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(A4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                                    .addComponent(A5)
+                                    .addComponent(A3)))))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(A11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PM2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(A3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(A4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(A5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton21)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addComponent(jButton23)
+                .addGap(17, 17, 17))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -351,9 +346,7 @@ public class Payments extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,33 +354,36 @@ public class Payments extends javax.swing.JFrame {
                             .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(31, 31, 31)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -406,29 +402,6 @@ public class Payments extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void PRIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PRIActionPerformed
-
-    private void PRIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PRIKeyTyped
-        // TODO add your handling code here:
-        char a = evt.getKeyChar();
-        if (Character.isLetter(a)) {
-            PRI.setEditable(false);
-        }
-        else{
-            PRI.setEditable(true);
-        }
-    }//GEN-LAST:event_PRIKeyTyped
-
-    private void PAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PAIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PAIActionPerformed
-
-    private void PMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PMActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
@@ -478,111 +451,336 @@ public class Payments extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        HomePage HP = new HomePage();
+        HP.setVisible(true);
+        HP.pack();
+        HP.setLocationRelativeTo(null);
+        dispose();
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
+    private void PM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PM2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AActionPerformed
+    }//GEN-LAST:event_PM2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
         // TODO add your handling code here:
+        calculateTotalAmount();
+    }//GEN-LAST:event_A3ActionPerformed
 
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
- 
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_A4ActionPerformed
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
+        // TODO add your handling code here:
+        computeChange();
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String patientID = JOptionPane.showInputDialog("Enter Patient ID:");
-        if (patientID == null || patientID.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Patient ID is required!");
+    }//GEN-LAST:event_A5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        viewReceiptInTable();
+        String patientID = A11.getText();
+        String method = PM2.getSelectedItem().toString();
+        String total = A3.getText();
+        String givenAmount = A4.getText();
+        String change = A5.getText();
+
+        // Ensure values are valid
+        double totalAmount = Double.parseDouble(total);
+        double givenAmountDouble = Double.parseDouble(givenAmount);
+        double changeAmountDouble = Double.parseDouble(change);
+
+        if (totalAmount <= 0 || givenAmountDouble <= 0 || changeAmountDouble < 0) {
+            JOptionPane.showMessageDialog(null, "Invalid payment details. Please check the amounts.");
             return;
         }
 
+        // Proceed with inserting the receipt
         try {
-            // SQL query to fetch patient history
-            String query = """
-            SELECT
-            p.patientID,
-            p.patientName,
-            p.patientAge,
-            p.gender,
-            p.contactNumber,
-            p.address,
-            p.insurance,
-            p.medicalHistory,
-            a.appointmentID,
-            a.appointmentDate,
-            a.appointmentTime,
-            a.reason AS appointmentReason,
-            a.status AS appointmentStatus,
-            pay.paymentID,
-            pay.productID,
-            pay.amount AS paymentAmount,
-            pay.paymentMethod
-            FROM
-            Patients p
-            LEFT JOIN
-            Appointments a ON p.patientID = a.patientID
-            LEFT JOIN
-            Payments pay ON p.patientID = pay.patientID
-            WHERE
-            p.patientID = ?
-            ORDER BY
-            a.appointmentDate;
-            """;
+            String totalAmountQuery = "SELECT SUM(ap.subtotal) + COALESCE(SUM(e.examinationCost), 0) AS totalAmount " +
+                                      "FROM addProducts ap " +
+                                      "LEFT JOIN Examinations e ON e.appointmentID = ap.patientID " +
+                                      "WHERE ap.patientID = ?";
 
-            // Prepare and execute the query
-            PreparedStatement stmt = kon.prepareStatement(query);
-            stmt.setString(1, patientID);
-            ResultSet rs = stmt.executeQuery();
+            try (PreparedStatement stmt = kon.prepareStatement(totalAmountQuery)) {
+                stmt.setInt(1, Integer.parseInt(patientID));  // Set patientID parameter
 
-            // Create a StringBuilder to display history
-            StringBuilder history = new StringBuilder();
-            history.append("Patient History:\n\n");
+                try (ResultSet rs = stmt.executeQuery()) {
+                    double calculatedTotalAmount = 0.0;
 
-            while (rs.next()) {
-                history.append("Patient ID: ").append(rs.getString("patientID")).append("\n");
-                history.append("Name: ").append(rs.getString("patientName")).append("\n");
-                history.append("Age: ").append(rs.getInt("patientAge")).append("\n");
-                history.append("Gender: ").append(rs.getString("gender")).append("\n");
-                history.append("Contact: ").append(rs.getString("contactNumber")).append("\n");
-                history.append("Address: ").append(rs.getString("address")).append("\n");
+                    if (rs.next()) {
+                        calculatedTotalAmount = rs.getDouble("totalAmount");
+                    }
 
-                history.append("Appointment ID: ").append(rs.getString("appointmentID")).append("\n");
-                history.append("Date: ").append(rs.getDate("appointmentDate")).append("\n");
-                history.append("Reason: ").append(rs.getString("appointmentReason")).append("\n");
+                    // Check if calculated total matches input total (could be an extra validation step)
+                    if (calculatedTotalAmount != totalAmount) {
+                        JOptionPane.showMessageDialog(null, "Mismatch in total amount. Please review.");
+                        return; // Prevent receipt creation if totals don't match
+                    }
 
-                history.append("Payment ID: ").append(rs.getString("paymentID")).append("\n");
-                history.append("Amount: ").append(rs.getBigDecimal("paymentAmount")).append("\n");
-                history.append("Payment Method: ").append(rs.getString("paymentMethod")).append("\n\n");
+                    // Proceed with inserting into receipt table
+                    String receiptQuery = "INSERT INTO receipt (patientID, paymentMethod, totalAmount, givenAmount, changeAmount) " +
+                                          "VALUES (?, ?, ?, ?, ?)";
+
+                    try (PreparedStatement receiptStmt = kon.prepareStatement(receiptQuery)) {
+                        receiptStmt.setInt(1, Integer.parseInt(patientID));
+                        receiptStmt.setString(2, method);
+                        receiptStmt.setDouble(3, totalAmount);
+                        receiptStmt.setDouble(4, givenAmountDouble);
+                        receiptStmt.setDouble(5, changeAmountDouble);
+
+                        // Execute the insertion
+                        receiptStmt.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Receipt added successfully to the database!");
+                    }
+                }
             }
-
-            if (history.length() > 0) {
-                JOptionPane.showMessageDialog(null, history.toString());
-            } else {
-                JOptionPane.showMessageDialog(null, "No history found for Patient ID: " + patientID);
-            }
-
-            // Close resources
-            rs.close();
-            stmt.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error fetching history: " + e.getMessage());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-    }//GEN-LAST:event_jButton8ActionPerformed
+        viewReceiptInTable();
 
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // Step 1: Prompt the user to input the patientID
+        String patientID = JOptionPane.showInputDialog("Enter the Patient ID to delete:");
+
+        if (patientID != null && !patientID.isEmpty()) {
+            // Step 2: Confirm the deletion
+            int confirmation = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to delete the receipt with Patient ID: " + patientID + "?",
+                "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+
+            if (confirmation == JOptionPane.YES_OPTION) {
+                // Step 3: Perform the deletion
+                String deleteReceiptQuery = "DELETE FROM receipt WHERE patientID = ?";
+
+                try (PreparedStatement deleteStmt = kon.prepareStatement(deleteReceiptQuery)) {
+                    // Set the patientID for the delete operation
+                    deleteStmt.setInt(1, Integer.parseInt(patientID));
+
+                    // Execute the delete
+                    int rowsAffected = deleteStmt.executeUpdate();
+
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Receipt deleted successfully!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No record found with the specified Patient ID.");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error deleting receipt: " + e.getMessage());
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Deletion canceled.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Invalid Patient ID entered.");
+        }
+        viewReceiptInTable();
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        viewReceiptInTable();
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void A11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_A11ActionPerformed
+    
+    public void viewReceiptInTable() {
+        // Step 1: Define the SQL query to retrieve all receipt details
+        String viewAllReceiptsQuery = "SELECT patientID, paymentMethod, totalAmount, givenAmount, changeAmount FROM receipt";
+
+        PreparedStatement viewStmt = null;
+        ResultSet resultSet = null;
+
+        try {
+            // Step 2: Prepare and execute the query
+            viewStmt = kon.prepareStatement(viewAllReceiptsQuery);
+            resultSet = viewStmt.executeQuery();
+
+            // Step 3: Create a table model for displaying data
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Patient ID");
+            model.addColumn("Payment Method");
+            model.addColumn("Total Amount");
+            model.addColumn("Given Amount");
+            model.addColumn("Change Amount");
+
+            // Step 4: Populate the model with data from the resultSet
+            while (resultSet.next()) {
+                Object[] row = new Object[5];
+                row[0] = resultSet.getInt("patientID");       // Patient ID
+                row[1] = resultSet.getString("paymentMethod"); // Payment Method
+                row[2] = resultSet.getDouble("totalAmount");   // Total Amount
+                row[3] = resultSet.getDouble("givenAmount");   // Given Amount
+                row[4] = resultSet.getDouble("changeAmount");  // Change Amount
+                model.addRow(row); // Add row to the model
+            }
+
+            // Step 5: Set the model to the JTable (assuming jTable1 is your JTable instance)
+            if (model.getRowCount() > 0) {
+                jTable1.setModel(model); // Update JTable with the data
+            } else {
+                JOptionPane.showMessageDialog(null, "No receipts found.", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error viewing receipts: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            // Step 6: Close resources
+            try {
+                if (resultSet != null) resultSet.close();
+                if (viewStmt != null) viewStmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void calculateTotalAmount() {
+       String patientID = A11.getText();  // Assuming patientID is fetched from a field like A11
+
+       // Query to get the total amount from addProducts
+       String query1 = "SELECT SUM(subtotal) AS totalAmountFromProducts " +
+                       "FROM addProducts WHERE patientID = ?";
+
+       // Query to get the total examination cost from Examinations
+       String query2 = "SELECT COALESCE(SUM(examinationCost), 0) AS totalExaminationCost " +
+                       "FROM Examinations e " +
+                       "JOIN Appointments a ON e.appointmentID = a.appointmentID " +
+                       "WHERE a.patientID = ?";
+
+       PreparedStatement stmt1 = null;
+       PreparedStatement stmt2 = null;
+       ResultSet rs1 = null;
+       ResultSet rs2 = null;
+
+       try {
+           // Prepare statement for totalAmount from addProducts
+           stmt1 = kon.prepareStatement(query1);
+           stmt1.setString(1, patientID);
+           rs1 = stmt1.executeQuery();
+
+           // Prepare statement for totalExaminationCost from Examinations
+           stmt2 = kon.prepareStatement(query2);
+           stmt2.setString(1, patientID);
+           rs2 = stmt2.executeQuery();
+
+           double totalAmountFromProducts = 0;
+           if (rs1.next()) {
+               totalAmountFromProducts = rs1.getDouble("totalAmountFromProducts");
+           }
+
+           double totalExaminationCost = 0;
+           if (rs2.next()) {
+               totalExaminationCost = rs2.getDouble("totalExaminationCost");
+           }
+
+           // Calculate the totalAmount by adding both
+           double totalAmount = totalAmountFromProducts + totalExaminationCost;
+
+           // Display the total amount in a relevant UI component
+           A3.setText(String.valueOf(totalAmount));
+           JOptionPane.showMessageDialog(null, "Total amount calculated successfully: " + totalAmount);
+
+       } catch (SQLException e) {
+           e.printStackTrace();
+           JOptionPane.showMessageDialog(null, "Error calculating total amount: " + e.getMessage());
+       } finally {
+           // Close resources
+           try {
+               if (rs1 != null) rs1.close();
+               if (rs2 != null) rs2.close();
+               if (stmt1 != null) stmt1.close();
+               if (stmt2 != null) stmt2.close();
+           } catch (SQLException e) {
+               e.printStackTrace();
+           }
+       }
+   }
+
+
+    public void computeChange(){
+        // Get the values from the text fields
+        String totalAmountStr = A3.getText();
+        String givenAmountStr = A4.getText();
+
+        try {
+            // Convert the strings to doubles
+            double totalAmount = Double.parseDouble(totalAmountStr);
+            double givenAmount = Double.parseDouble(givenAmountStr);
+
+            // Calculate the change
+            double change = givenAmount - totalAmount;
+
+            // Optionally, display the change
+            JOptionPane.showMessageDialog(null, "Change: " + change);
+            A5.setText(String.valueOf(change));
+        } catch (NumberFormatException e) {
+            // Handle the case where the input is not a valid number
+            JOptionPane.showMessageDialog(null, "Please enter valid numbers for totalAmount and givenAmount.");
+        }
+    }
+    
+    public void viewReceiptInTablepo() {
+        // Step 1: Define the SQL query to retrieve all receipt details
+        String viewAllReceiptsQuery = "SELECT patientID, paymentMethod, totalAmount, givenAmount, changeAmount FROM receipt";
+
+        PreparedStatement viewStmt = null;
+        ResultSet resultSet = null;
+
+        try {
+            // Step 2: Prepare and execute the query
+            viewStmt = kon.prepareStatement(viewAllReceiptsQuery);
+            resultSet = viewStmt.executeQuery();
+
+            // Step 3: Create a table model for displaying data
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("Patient ID");
+            model.addColumn("Payment Method");
+            model.addColumn("Total Amount");
+            model.addColumn("Given Amount");
+            model.addColumn("Change Amount");
+
+            // Step 4: Populate the model with data from the resultSet
+            while (resultSet.next()) {
+                Object[] row = new Object[5];
+                row[0] = resultSet.getInt("patientID");       // Patient ID
+                row[1] = resultSet.getString("paymentMethod"); // Payment Method
+                row[2] = resultSet.getDouble("totalAmount");   // Total Amount
+                row[3] = resultSet.getDouble("givenAmount");   // Given Amount
+                row[4] = resultSet.getDouble("changeAmount");  // Change Amount
+                model.addRow(row); // Add row to the model
+            }
+
+            // Step 5: Set the model to the JTable (assuming jTable1 is your JTable instance)
+            if (model.getRowCount() > 0) {
+                jTable1.setModel(model); // Update JTable with the data
+            } else {
+                JOptionPane.showMessageDialog(null, "No receipts found.", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error viewing receipts: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            // Step 6: Close resources
+            try {
+                if (resultSet != null) resultSet.close();
+                if (viewStmt != null) viewStmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+   
     /**
      * @param args the command line arguments
      */
@@ -618,32 +816,33 @@ public class Payments extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField A;
-    private javax.swing.JTextField PAI;
-    private javax.swing.JComboBox<String> PM;
-    private javax.swing.JTextField PRI;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField A11;
+    private javax.swing.JTextField A3;
+    private javax.swing.JTextField A4;
+    private javax.swing.JTextField A5;
+    private javax.swing.JComboBox<String> PM2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;

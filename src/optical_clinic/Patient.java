@@ -19,6 +19,7 @@ public class Patient extends javax.swing.JFrame {
         initComponents();
         DBKonek db = new DBKonek();
         kon = db.getConnection();
+        populateHomeTable();
     }
 
     
@@ -194,7 +195,7 @@ public class Patient extends javax.swing.JFrame {
         jPanel3.add(PI, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 330, 31));
 
         PMH.setFont(new java.awt.Font("Lucida Sans", 1, 18)); // NOI18N
-        PMH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Eye Conditions", "Eye Surgeries and Procedures", "Eye Injuries", "Family Eye Health History", "Other Relevant Health Conditions", "Symptoms or Current Concerns" }));
+        PMH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Eye Conditions", "Eye Surgeries and Procedures", "Eye Injuries", "Family Eye Health History", "Other Relevant Health Conditions", "Symptoms or Current Concerns", "Others" }));
         PMH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PMH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

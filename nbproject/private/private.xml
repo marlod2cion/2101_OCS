@@ -4,17 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Payments.java</file>
-            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Solution.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Lens.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Patient.java</file>
-            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Optical_Clinic.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/HomePage.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Examination.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Frame.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Reports.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Product.java</file>
-            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Appointment.java</file>
             <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Logins.java</file>
+            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Solution.java</file>
+            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Optical_Clinic.java</file>
+            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/database_connector/DBKonek.java</file>
+            <file>file:/D:/Marlo/Documents/2101_GIT/2101_OCS/src/optical_clinic/Appointment.java</file>
         </group>
     </open-files>
 </project-private>
